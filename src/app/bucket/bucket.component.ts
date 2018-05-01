@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BucketService} from '../services/bucket.service';
 import {Angular2TokenService} from "angular2-token";
-import {Bucket} from '../bucket';
 import {ProdService} from '../services/prod.service';
-import {Prod} from '../prod';
 import {List} from '../list';
 
 
@@ -15,8 +13,6 @@ import {List} from '../list';
   styleUrls: ['./bucket.component.sass']
 })
 export class BucketComponent implements OnInit {
-	bucket = new Bucket;
-	list:any;
 	id:number;
 	lists:List[];
 

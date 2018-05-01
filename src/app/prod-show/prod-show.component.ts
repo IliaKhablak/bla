@@ -7,6 +7,7 @@ import {MaterializeAction} from "angular2-materialize";
 import * as $ from 'jquery';
 import {Comment} from '../comment';
 import {Angular2TokenService} from "angular2-token";
+import {BucketService} from '../services/bucket.service';
 
 @Component({
   selector: 'app-prod-show',
@@ -28,7 +29,8 @@ export class ProdShowComponent implements OnInit {
   	private prodService:ProdService, 
   	private route:ActivatedRoute,
   	private router:Router,
-    private authService:Angular2TokenService
+    private authService:Angular2TokenService,
+    private bucket:BucketService
   ) { 
     this.route.params.subscribe(
       params => {this.id = params['id']}
@@ -57,6 +59,13 @@ export class ProdShowComponent implements OnInit {
     });
   	this.prodService.deleteProd(id)
   	  .subscribe(res=>{console.log(res); this.router.navigate(['/prods'])});
+    this.bucket.getBucket().subscribe(res=>{
+      let a = [];
+      res.json().forEach(function(el){
+        a.push(el.number);
+      });
+      this.bucket.amount = a.reduce((a, b) => a + b, 0);
+    });
   }
 
   openModal() {

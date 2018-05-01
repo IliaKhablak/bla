@@ -25,8 +25,8 @@ export class ToolbarComponent implements OnInit {
   constructor(
     public authService:AuthService, 
     private router:Router,
-    private bucketService:BucketService,
-    private auth:Angular2TokenService
+    public bucketService:BucketService,
+    public auth:Angular2TokenService
   ) {
   }
 

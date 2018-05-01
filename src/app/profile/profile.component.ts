@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(public authService:AuthService,
               private router:Router,
-              private authTokenService:Angular2TokenService) {}
+              public authTokenService:Angular2TokenService) {}
 
   logOut(){
     this.authService.logOutUser().subscribe(() => this.router.navigate(['/']));

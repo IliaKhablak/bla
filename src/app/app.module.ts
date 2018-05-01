@@ -22,7 +22,6 @@ import { AngularDraggableModule } from 'angular2-draggable';
 import {ImageZoomModule} from 'angular2-image-zoom';
 import { BucketComponent } from './bucket/bucket.component';
 import {BucketService} from './services/bucket.service';
-import {User} from './user';
 import { PictureComponent } from './picture/picture.component';
 
   
@@ -56,8 +55,7 @@ import { PictureComponent } from './picture/picture.component';
   AuthGuard, 
   AuthService, 
   ProdService, 
-  BucketService,
-  User
+  BucketService
   ],
   bootstrap: [AppComponent]
 })

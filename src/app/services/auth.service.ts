@@ -33,7 +33,7 @@ userSignedIn$:any;
     return this.authService.registerAccount(signUpData).map(
         res => {
           this.userSignedIn$ = true;
-          this.bucket.getBucket(res.json().data.id).subscribe(res=>{
+          this.bucket.getBucket().subscribe(res=>{
             let a = [];
             res.json().forEach(function(el){
               a.push(el.number);
@@ -50,7 +50,7 @@ userSignedIn$:any;
     return this.authService.signIn(signInData).map(
         res => {
           this.userSignedIn$ = true;
-          this.bucket.getBucket(res.json().data.id).subscribe(res=>{
+          this.bucket.getBucket().subscribe(res=>{
             let a = [];
             res.json().forEach(function(el){
               a.push(el.number);
