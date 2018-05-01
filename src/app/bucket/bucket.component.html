@@ -1,0 +1,35 @@
+
+<div class="row">
+  <div class="col m12 s12">
+    <div class="card z-depth-4" style="margin-top: 50px;">
+    	<h2 style="margin: 20px;"> Your bucket: </h2>
+      <div class="card-content" style="min-height: 400px;">
+        <div class="row ">
+          <div class="col l12 s12" style="overflow: auto;">
+            <h3 *ngIf="lists.length < 1"> Is empty</h3>
+            <table *ngIf="lists.length > 0">
+		        <thead>
+		          <tr>
+		          	  <th>Image</th>
+		              <th>Product title</th>
+		              <th>Amount</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		          <tr *ngFor="let list of lists">
+		          	<td><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]"
+                [imageZoom]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]" [zoomLevelIncrement]='.3' style="width: auto; height: 30px;"></td>
+		            <td class="valign-wrapper"><b>{{list.prod.title}}&nbsp;</b></td>
+		            <td><a (click)="deleteFromBucket(list.prod.id)" *ngIf="list.number > 1">-</a>&nbsp;<b>{{list.number}}</b>&nbsp;<a (click)="addToBucket(list.prod.id)">+</a></td>
+		            <td>
+		            	<a (click)="deleteFromBucket2(list.prod.id)" class="btn deep-orange darken-1 white-text waves-effect waves-light">DELETE</a>
+		            </td>
+		          </tr>
+		        </tbody>
+		      </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+
+
+<div class="modal" materialize="modal" [materializeActions]="modalActions" ngDraggable>
+    <div class="modal-content">
+		<div class="row">
+			<h3 class="grey-text text-darken-2 center">Add new product</h3>
+			<form (ngSubmit)="createProd(prod); prodForm.reset();" #prodForm='ngForm' class="col l8 s12 offset-l2">
+				<div class="row">
+					<div class="input-field col s12">
+						<input type="text" name="title"
+						id="title" #title='ngModel' class="validate"
+						[(ngModel)]='prod.title' required>
+						<label for="title" data-error="Title is required" data-success="Everithing is ok now" class="active">Title</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea class="materialize-textarea validate" id="description"
+							name="description" #description='ngModel'[(ngModel)]='prod.description' required>
+						</textarea>
+						<label for="description" data-error="Description is required" data-success="Everithing is ok now" class="active">Description</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="file-field input-field col s12 ">
+				      <div class="btn">
+				        <span>File</span>
+							<input type="file" (change)="getFile($event)" multiple id="needreset">
+						</div>
+						<div class="file-path-wrapper">
+			    			<input class="file-path validate" type="text" placeholder="Image require">
+						</div>
+						<div class="progress" *ngIf="img_upload" id="puscontainer">
+						<div class='determinate' id='pus' style='width: 0%'></div>
+					</div>
+					</div>
+				</div>
+				<div>
+					<button type="submit" class="waves-effect waves-light btn" [disabled]="!prodForm.form.valid">Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
