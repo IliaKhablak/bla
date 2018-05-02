@@ -15,6 +15,14 @@
 				</div>
 				<div class="row">
 					<div class="input-field col s12">
+						<input type="text" name="category"
+						id="category" #category='ngModel' class="validate"
+						[(ngModel)]='prod.category' required>
+						<label for="category" data-error="Category is required" data-success="Everithing is ok now" class="active">Category</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12">
 						<textarea class="materialize-textarea validate" id="description"
 							name="description" #description='ngModel'[(ngModel)]='prod.description' required>
 						</textarea>

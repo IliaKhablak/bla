@@ -25,6 +25,7 @@ export class ProdNewComponent {
   ) {}
 
 	createProd(prod:Prod){
+    console.log(prod.category);
     let self = this;
     prod.image = this.img_storage.slice(0, -1);
 		this.prodService.createProd(prod)
