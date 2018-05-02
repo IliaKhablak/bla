@@ -15,9 +15,10 @@ import {BucketService} from '../services/bucket.service';
 export class ProdListComponent implements OnInit {
 
 	prods:Prod[];
+  bla:boolean = false;
 
   constructor(
-    private prodService:ProdService, 
+    public prodService:ProdService, 
     private router:Router,
     private bucket:BucketService
   ) { }
@@ -47,5 +48,12 @@ export class ProdListComponent implements OnInit {
       });
       this.bucket.amount = a.reduce((a, b) => a + b, 0);
     });
+  }
+
+  addclass(event){
+    event.target.classList.add('spinable');
+    // window.setTimeout(event.target.classList.remove('spinable'),1000);
+    // event.target.classList.remove('spinable');
+    // if (this.bla) {this.bla = false;return 'spinable';}
   }
 }

@@ -2,11 +2,10 @@ import {Component, OnInit, ViewChild, EventEmitter} from '@angular/core';
 import {AuthDialogComponent} from "../auth-dialog/auth-dialog.component";
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
-import {ProdNewComponent} from '../prod-new/prod-new.component';
-import {List} from '../list';
 import {BucketService} from '../services/bucket.service';
 import {Angular2TokenService} from "angular2-token";
 import {MaterializeDirective} from "angular2-materialize";
+import {ProdService} from '../services/prod.service';
 
 
 
@@ -18,7 +17,6 @@ import {MaterializeDirective} from "angular2-materialize";
 export class ToolbarComponent implements OnInit {
 
   @ViewChild('authDialog') authDialog: AuthDialogComponent;
-  @ViewChild('prodNew') prodNew: ProdNewComponent;
   sidenavActions = new EventEmitter<any>();
   sidenavParams = [];
 
@@ -26,7 +24,8 @@ export class ToolbarComponent implements OnInit {
     public authService:AuthService, 
     private router:Router,
     public bucketService:BucketService,
-    public auth:Angular2TokenService
+    public auth:Angular2TokenService,
+    public prodService:ProdService
   ) {
   }
 
@@ -43,7 +42,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   openNewProd(){
-     this.prodNew.openModal();
+     this.prodService.openModal();
   }
 
   showSidenav(): void {

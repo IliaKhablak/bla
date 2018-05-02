@@ -35,10 +35,13 @@ export class ProdShowComponent implements OnInit {
     this.route.params.subscribe(
       params => {this.id = params['id']}
     )
-    this.prodService.getProd(this.id).subscribe(res=>{
-      this.prod = res.json().prod;
-      this.comments = res.json().comments;
-      this.images = this.prod.image.split(',');
+    let timer = Observable.timer(0, 5000);
+    timer.subscribe(() =>{
+      this.prodService.getProd(this.id).subscribe(res=>{
+        this.prod = res.json().prod;
+        this.comments = res.json().comments;
+        this.images = this.prod.image.split(',');
+      });
     });
   }
 
@@ -141,6 +144,16 @@ export class ProdShowComponent implements OnInit {
 
   goToPicture(prod:Prod){
     this.router.navigate(['/picture',this.prod.id],{queryParams:{image:prod.image}});
+  }
+
+  addToBucket(id:number){
+    this.bucket.addToBucket(id).subscribe(res=>{
+      let a = [];
+      res.json().forEach(function(el){
+        a.push(el.number);
+      });
+      this.bucket.amount = a.reduce((a, b) => a + b, 0);
+    });
   }
 
 }

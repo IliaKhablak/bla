@@ -9,8 +9,11 @@
 	    	</div>
 	    	 <div class="card-action">
 	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
-	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id)"><i class="material-icons">local_grocery_store</i></a>
+	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event)"><i class="material-icons">local_grocery_store</i></a>
 	    	</div>
     	</div>
   	</div>
+</div>
+<div class="fixed-action-btn hide-on-large-only">
+<a (click)="prodService.openModal()" class="btn-floating btn-large waves-effect waves-light blue darken-1"><i class="material-icons">add</i></a>
 </div>

@@ -17,8 +17,9 @@
 		        </thead>
 		        <tbody>
 		          <tr *ngFor="let list of lists">
-		          	<td><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]"
+		          	<td class="hide-on-med-and-down"><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]"
                 [imageZoom]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]" [zoomLevelIncrement]='.3' style="width: auto; height: 30px;"></td>
+                	<td class="hide-on-large-only"><a (click)="openModal('https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0])" ><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]" style="width: auto; height: 30px;"></a></td>
 		            <td class="valign-wrapper"><b>{{list.prod.title}}&nbsp;</b></td>
 		            <td><a (click)="deleteFromBucket(list.prod.id)" *ngIf="list.number > 1">-</a>&nbsp;<b>{{list.number}}</b>&nbsp;<a (click)="addToBucket(list.prod.id)">+</a></td>
 		            <td>
@@ -32,4 +33,9 @@
       </div>
     </div>
   </div>
+</div>
+<div class="modal" materialize="modal" [materializeActions]="modalActions" ngDraggable>
+    <div class="modal-content">
+    	<img [src]="url">
+    </div>
 </div>

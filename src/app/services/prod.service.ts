@@ -1,14 +1,16 @@
-import { Injectable} from '@angular/core';
+import { Injectable, EventEmitter} from '@angular/core';
 import {Observable} from "rxjs";
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Prod} from '../prod';
 import {Env} from '../env';
+import {MaterializeAction} from "angular2-materialize";
+
 
 
 @Injectable()
 export class ProdService {
-
+	modalActions = new EventEmitter<string|MaterializeAction>();
 	headers: Headers;
 	options: RequestOptions;
 	private prodsUrl = 'https://infinite-reaches-26736.herokuapp.com/prods';
@@ -62,4 +64,11 @@ export class ProdService {
 		return this.http.post('https://infinite-reaches-26736.herokuapp.com/deletecomment/'+id,{user_id: comment_id}, this.options);
 	}
 
+	openModal() {
+	    this.modalActions.emit({action:"modal",params:['open']});
+	  }
+
+	 closeModal() {
+	    this.modalActions.emit({action:"modal",params:['close']});
+	  }
 }

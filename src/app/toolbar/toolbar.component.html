@@ -4,7 +4,7 @@
     
     <a materialize="sideNav" [materializeParams]="[{edge:'right', closeOnClick:true}]" href="#" data-activates="slide-out" class="button-collapse hide-on-large-only right"><i class="material-icons">menu</i></a>
     <div class="nav-wrapper blue ">
-      <a [routerLink]="['']" id="logo-container" class="brand-logo">Test application</a>
+      <a [routerLink]="['']" id="logo-container" class="brand-logo" style="margin-left: 10px;">Test App</a>
 
       <ul class="right hide-on-med-and-down">
 
@@ -27,7 +27,7 @@
 </div>
 <ul id="slide-out" class="side-nav" style="z-index: 1000;">
          <li routerLinkActive="active"> <a [routerLink]="['/prods']" >PRODUCTS</a></li>
-         <li> <a (click)="openNewProd()">ADD PPRODUCT</a></li>
+         <!-- <li> <a (click)="openNewProd()">ADD PPRODUCT</a></li> -->
          <li routerLinkActive="active"> <a [routerLink]="['/bucket']" >BUCKET&nbsp;<span class="new badge red" data-badge-caption="products" *ngIf="bucketService.amount">{{bucketService.amount}}</span></a></li>
         <li *ngIf="!authService.userSignedIn$"> <a (click)="presentAuthDialog()" >LOGIN</a></li>
         <li *ngIf="!authService.userSignedIn$"> <a (click)="presentAuthDialog('register')">REGISTER</a></li>

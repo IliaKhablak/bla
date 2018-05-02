@@ -13,7 +13,7 @@ import * as $ from 'jquery';
 export class ProdNewComponent {
 	prod = new Prod;
 	err:any;
-	modalActions = new EventEmitter<string|MaterializeAction>();
+	urls:string[] = [];
   img_upload:boolean = false;
   img_storage:string = "";
   AWS = require('aws-sdk');
@@ -21,7 +21,7 @@ export class ProdNewComponent {
 
   constructor(
   	private router:Router, 
-  	private prodService:ProdService
+  	public prodService:ProdService
   ) {}
 
 	createProd(prod:Prod){
@@ -44,7 +44,7 @@ export class ProdNewComponent {
              });           // successful response
            });
           })
-					this.closeModal();
+					this.prodService.closeModal();
           this.img_upload = false;
           $('img').remove();
           $('.file-path').val('');
@@ -55,14 +55,6 @@ export class ProdNewComponent {
 				}
 			)
 	}
-
-  openModal() {
-    this.modalActions.emit({action:"modal",params:['open']});
-  }
-
-  closeModal() {
-    this.modalActions.emit({action:"modal",params:['close']});
-  }
 
   getFile(fileInput:any){
     this.AWS.config.update({region: 'ap-southeast-1', credentials: {"accessKeyId": this.prodService.env.id, "secretAccessKey": this.prodService.env.key}});
@@ -84,7 +76,9 @@ export class ProdNewComponent {
     }).send(function(err, s3res) { 
       // console.log('errors:',err);
       console.log('res:',s3res.Key);
-      $('#puscontainer').after("<img style='width:30px;height:auto;' src='https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/"+s3res.Key+"'>");
+      let a = self.urls.length;
+      self.urls[a] = 'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+s3res.Key;
+      // $('#puscontainer').after("<img style='width:30px;height:auto;' src='https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/"+s3res.Key+"'>");
       self.img_storage = self.img_storage + s3res.Key+',';
     });
   }
