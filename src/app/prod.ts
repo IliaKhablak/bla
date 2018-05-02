@@ -5,7 +5,8 @@ export class Prod {
 		public description?: string,
 		public updated_at?: string,
 		public image?: string,
-		public user_id?: number
+		public user_id?: number,
+		public category?: string
 
 	){}
 }

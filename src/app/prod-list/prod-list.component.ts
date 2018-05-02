@@ -51,9 +51,9 @@ export class ProdListComponent implements OnInit {
   }
 
   addclass(event){
-    event.target.classList.add('spinable');
-    // window.setTimeout(event.target.classList.remove('spinable'),1000);
-    // event.target.classList.remove('spinable');
-    // if (this.bla) {this.bla = false;return 'spinable';}
+    event.target.classList.toggle('spinable');
+    window.setTimeout(() => {
+      event.target.classList.remove('spinable');
+    }, 600);
   }
 }
