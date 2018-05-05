@@ -42,12 +42,14 @@ export class ProdListComponent implements OnInit {
 
   addToBucket(id:number){
     this.bucket.addToBucket(id).subscribe(res=>{
+      this.bucket.buckets = res.json();
       let a = [];
       res.json().forEach(function(el){
         a.push(el.number);
       });
       this.bucket.amount = a.reduce((a, b) => a + b, 0);
     });
+    // this.bucket.openDrop();
   }
 
   addclass(event){

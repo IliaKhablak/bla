@@ -148,6 +148,7 @@ export class ProdShowComponent implements OnInit {
 
   addToBucket(id:number){
     this.bucket.addToBucket(id).subscribe(res=>{
+      this.bucket.buckets = res.json();
       let a = [];
       res.json().forEach(function(el){
         a.push(el.number);

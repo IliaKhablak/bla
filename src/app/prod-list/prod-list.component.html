@@ -9,7 +9,7 @@
 	    	</div>
 	    	 <div class="card-action">
 	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
-	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event)"><i class="material-icons">local_grocery_store</i></a>
+	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();" ><i class="material-icons">local_grocery_store</i></a>
 	    	</div>
     	</div>
   	</div>

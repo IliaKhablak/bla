@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, EventEmitter} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {AuthDialogComponent} from "../auth-dialog/auth-dialog.component";
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
@@ -6,7 +6,7 @@ import {BucketService} from '../services/bucket.service';
 import {Angular2TokenService} from "angular2-token";
 import {MaterializeDirective} from "angular2-materialize";
 import {ProdService} from '../services/prod.service';
-import * as $ from 'jquery';
+
 
 
 
@@ -18,6 +18,8 @@ import * as $ from 'jquery';
 export class ToolbarComponent implements OnInit {
 
   @ViewChild('authDialog') authDialog: AuthDialogComponent;
+  
+  params = {hover: true, constrainWidth:false};
   // sidenavActions = new EventEmitter<any>();
   // sidenavParams = [];
 
@@ -46,9 +48,8 @@ export class ToolbarComponent implements OnInit {
      this.prodService.openModal();
   }
 
-  // showSidenav(): void {
-  //   this.sidenavParams = ['show'];
-  //   this.sidenavActions.emit('sideNav');
-  // }
+  getParams(){
+    return this.params;
+  }
 
 }
