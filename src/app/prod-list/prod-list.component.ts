@@ -54,6 +54,6 @@ export class ProdListComponent implements OnInit {
     event.target.classList.toggle('spinable');
     window.setTimeout(() => {
       event.target.classList.remove('spinable');
-    }, 600);
+    }, 1000);
   }
 }

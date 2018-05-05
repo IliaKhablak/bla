@@ -4,7 +4,7 @@ import {Angular2TokenService} from "angular2-token";
 import {ProdService} from '../services/prod.service';
 import {List} from '../list';
 import {MaterializeAction} from "angular2-materialize";
-
+import {Router} from '@angular/router';
 
 
 
@@ -21,9 +21,10 @@ export class BucketComponent implements OnInit {
   url:string;
 
   constructor(
-  	private bucketService:BucketService, 
+  	private bucketService:BucketService,
   	private auth:Angular2TokenService,
-  	private prodService:ProdService
+  	private prodService:ProdService,
+    private router:Router
   ) {
   		this.bucketService.getBucket().subscribe(res=>{
   			this.lists = res.json();
@@ -72,5 +73,10 @@ export class BucketComponent implements OnInit {
 
   closeModal() {
     this.modalActions.emit({action:"modal",params:['close']});
+  }
+
+  goToShow(id:number):void {
+    let postLink = ['/prods', id];
+    this.router.navigate(postLink);
   }
 }

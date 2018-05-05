@@ -10,7 +10,18 @@
 
          <li> <a [routerLink]="['/prods']" >PRODUCTS</a></li>
          <li > <a (click)="openNewProd()">ADD PPRODUCT</a></li>
-         <li> <a  [routerLink]="['/bucket']" >BUCKET&nbsp;<span class="new badge red" data-badge-caption="products" *ngIf="bucketService.amount">{{bucketService.amount}}</span></a></li>
+         
+         <li> <a  [routerLink]="['/bucket']" >BUCKET&nbsp;<span class="new badge red dropdown-button" data-badge-caption="products" materialize="dropdown" [materializeParams]="[{hover: true}]" data-activates='dropdown1' *ngIf="bucketService.amount">{{bucketService.amount}}</span></a>
+           <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="#!">three</a></li>
+            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+          </ul>
+         </li>
+
         <li *ngIf="!authService.userSignedIn$"> <a (click)="presentAuthDialog()" >LOGIN</a></li>
         <li *ngIf="!authService.userSignedIn$"> <a (click)="presentAuthDialog('register')">REGISTER</a></li>
 
@@ -35,6 +46,8 @@
         <li *ngIf="authService.userSignedIn$" routerLinkActive="active"><a [routerLink]="['/profile']">PROFILE</a></li>
         <li *ngIf="authService.userSignedIn$"><a (click)="logOut()">LOGOUT</a></li>
     </ul>
+
+    
 <app-auth-dialog #authDialog ></app-auth-dialog>
 <app-prod-new #prodNew></app-prod-new>
 

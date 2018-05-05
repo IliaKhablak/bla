@@ -6,6 +6,7 @@ import {BucketService} from '../services/bucket.service';
 import {Angular2TokenService} from "angular2-token";
 import {MaterializeDirective} from "angular2-materialize";
 import {ProdService} from '../services/prod.service';
+import * as $ from 'jquery';
 
 
 
@@ -17,8 +18,8 @@ import {ProdService} from '../services/prod.service';
 export class ToolbarComponent implements OnInit {
 
   @ViewChild('authDialog') authDialog: AuthDialogComponent;
-  sidenavActions = new EventEmitter<any>();
-  sidenavParams = [];
+  // sidenavActions = new EventEmitter<any>();
+  // sidenavParams = [];
 
   constructor(
     public authService:AuthService, 
@@ -45,9 +46,9 @@ export class ToolbarComponent implements OnInit {
      this.prodService.openModal();
   }
 
-  showSidenav(): void {
-    this.sidenavParams = ['show'];
-    this.sidenavActions.emit('sideNav');
-  }
+  // showSidenav(): void {
+  //   this.sidenavParams = ['show'];
+  //   this.sidenavActions.emit('sideNav');
+  // }
 
 }
