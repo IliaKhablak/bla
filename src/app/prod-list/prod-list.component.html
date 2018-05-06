@@ -1,3 +1,10 @@
+
+<div class="row hide-on-large-only step" [class.show]="shprod" id='shprod'>
+	<div class="col s12 m6 offset-m3">
+		{{shprod?.title}}
+	</div>
+</div>
+
  
 <div class="row" style="margin-top: 30px;">
     <div class="input-field col s12 m6 l4 offset-m3 offset-l4">
@@ -10,7 +17,7 @@
 </div> -->
 
  <div class="row" *ngIf="!filteredItems">
-    <div class="col s12 l3" *ngFor="let prod of prods" style="margin-top: 30px;">
+    <div class="col s12 m6 l3" *ngFor="let prod of prods" style="margin-top: 30px;">
 	    <div class="card hoverable medium"  >
 	    	<div class="card-image">
           		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]">
@@ -20,13 +27,13 @@
 	    	</div>
 	    	 <div class="card-action">
 	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
-	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();" ><i class="material-icons">local_grocery_store</i></a>
+	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();smdispbucket(prod);" ><i class="material-icons">local_grocery_store</i></a>
 	    	</div>
     	</div>
   	</div>
 </div>
 <div class="row" *ngIf="filteredItems">
-    <div class="col s12 l3" *ngFor="let prod of filteredItems" style="margin-top: 30px;">
+    <div class="col s12 m6 l3" *ngFor="let prod of filteredItems" style="margin-top: 30px;">
 	    <div class="card hoverable medium"  >
 	    	<div class="card-image">
           		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]">
@@ -36,7 +43,7 @@
 	    	</div>
 	    	 <div class="card-action">
 	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
-	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();" ><i class="material-icons">local_grocery_store</i></a>
+	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();smdispbucket(prod);" ><i class="material-icons">local_grocery_store</i></a>
 	    	</div>
     	</div>
   	</div>
@@ -44,3 +51,5 @@
 <div class="fixed-action-btn hide-on-large-only">
 <a (click)="prodService.openModal()" class="btn-floating btn-large waves-effect waves-light blue darken-1"><i class="material-icons">add</i></a>
 </div>
+
+

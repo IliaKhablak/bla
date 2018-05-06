@@ -24,6 +24,8 @@ import { BucketComponent } from './bucket/bucket.component';
 import {BucketService} from './services/bucket.service';
 import { PictureComponent } from './picture/picture.component';
 import { Ng2PicaModule } from 'ng2-pica';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
   
 
@@ -50,7 +52,8 @@ import { Ng2PicaModule } from 'ng2-pica';
     FormsModule,
     AngularDraggableModule,
     ImageZoomModule,
-    Ng2PicaModule
+    Ng2PicaModule,
+    BrowserAnimationsModule
   ],
   providers: [
   Angular2TokenService,

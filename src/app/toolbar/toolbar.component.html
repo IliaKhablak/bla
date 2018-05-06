@@ -1,20 +1,21 @@
-<div class="navbar-fixed">
 
-  <nav  role="navigation">
-    
+<div class="navbar-fixed" style="margin-bottom: 100px;" >
+
+  <nav  role="navigation" class="nav-extended">
+    <div class="nav-wrapper">
     <a materialize="sideNav" [materializeParams]="[{edge:'right', closeOnClick:true}]" href="#" data-activates="slide-out" class="button-collapse hide-on-large-only right"><i class="material-icons">menu</i></a>
     <div class="nav-wrapper blue ">
       <a [routerLink]="['']" id="logo-container" class="brand-logo" style="margin-left: 10px;">Test App</a>
 
       <ul class="right hide-on-med-and-down">
 
-         <li> <a [routerLink]="['/prods']" >PRODUCTS</a></li>
+         <li> <a [routerLink]="['/prods']" >CATALOG</a></li>
          <li > <a (click)="openNewProd()">ADD PPRODUCT</a></li>
          
          <li> <a  [routerLink]="['/bucket']" >BUCKET&nbsp;<span class="new badge red dropdown-button" data-badge-caption="products" materialize="dropdown" [materializeParams]="[getParams()]" data-activates='dropdown1' [materializeActions]="bucketService.dropActions" *ngIf="bucketService.amount">{{bucketService.amount}}</span></a>
-           <ul id='dropdown1' class='dropdown-content' style="overflow: visible;width: 200px;">
+           <ul id='dropdown1' class='dropdown-content' style="overflow: visible;width: 200px;z-index: 2">
             <ng-container *ngFor="let bucket of bucketService.buckets">
-              <li ><a href="#!" style="padding: 0px;width: 200px;">
+              <li ><a href="#!" style="padding: 0px;width: 200px;z-index: 2">
                   <div class="row" style="margin:0px;">
                     <div class="col s5" style="padding: 0px;height: 60px;">
                       <img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+bucket.prod.image.split(',')[0]" style="width:auto; height: 100%;"></div>
@@ -36,12 +37,12 @@
         <li *ngIf="authService.userSignedIn$"><a (click)="logOut()">LOGOUT</a></li>
 
       </ul>
-      <!-- <a materialize="sideNav" [materializeParams]="sidenavParams" [materializeActions]="sidenavActions" data-activates="sidenav" class="btn-floating btn-flat waves-effect waves-light transparent hide-on-large-only right" (click)="hideWelcome">
-        <i class="material-icons">menu</i>
-      </a> -->
-
     </div>
+  </div>
   </nav>
+   <div class="blue" *ngIf='!isHidden' [@enterAnimation] style="position: fixed;top:55px;height: 100px;width: 100%;z-index: 1">
+      
+    </div>
 </div>
 <ul id="slide-out" class="side-nav" style="z-index: 1000;">
          <li routerLinkActive="active"> <a [routerLink]="['/prods']" >PRODUCTS</a></li>
