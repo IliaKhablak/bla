@@ -8,6 +8,8 @@ import * as $ from 'jquery';
 import {Comment} from '../comment';
 import {Angular2TokenService} from "angular2-token";
 import {BucketService} from '../services/bucket.service';
+import { Ng2PicaService } from 'ng2-pica';
+
 
 @Component({
   selector: 'app-prod-show',
@@ -30,7 +32,8 @@ export class ProdShowComponent implements OnInit {
   	private route:ActivatedRoute,
   	private router:Router,
     private authService:Angular2TokenService,
-    private bucket:BucketService
+    private bucket:BucketService,
+    private pic:Ng2PicaService
   ) { 
     this.route.params.subscribe(
       params => {this.id = params['id']}
@@ -96,7 +99,7 @@ export class ProdShowComponent implements OnInit {
     this.AWS.config.update({region: 'ap-southeast-1', credentials: {"accessKeyId": this.prodService.env.id, "secretAccessKey": this.prodService.env.key}});
     let file = fileInput.target.files;
     for (let i=0; i < file.length; i++){
-      this.fileEvent(file[i]);
+      this.pic.resize([file[i]], 600, 600).subscribe(res=>this.fileEvent(res));
     }
   }
 

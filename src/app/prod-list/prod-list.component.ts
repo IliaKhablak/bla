@@ -16,6 +16,7 @@ export class ProdListComponent implements OnInit {
 
 	prods:Prod[];
   bla:boolean = false;
+  filteredItems:any;
 
   constructor(
     public prodService:ProdService, 
@@ -57,5 +58,17 @@ export class ProdListComponent implements OnInit {
     window.setTimeout(() => {
       event.target.classList.remove('spinable');
     }, 1000);
+  }
+
+  assignCopy(){
+   this.filteredItems = Object.assign([], this.prods);
+  }
+
+  filterItem(value){
+     if(!value) this.assignCopy(); //when nothing has typed
+     this.filteredItems = Object.assign([], this.prods).filter(
+       // item=>console.log(item.title)
+        item => item.title.toLowerCase().indexOf(value.toLowerCase()) > -1
+     )
   }
 }
