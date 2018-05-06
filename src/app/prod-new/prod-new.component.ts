@@ -4,6 +4,8 @@ import {Prod} from '../prod';
 import {ProdService} from '../services/prod.service';
 import {MaterializeAction} from "angular2-materialize";
 import * as $ from 'jquery';
+import { Ng2PicaService } from 'ng2-pica';
+
 
 @Component({
   selector: 'app-prod-new',
@@ -21,7 +23,8 @@ export class ProdNewComponent {
 
   constructor(
   	private router:Router, 
-  	public prodService:ProdService
+  	public prodService:ProdService,
+    private pic:Ng2PicaService
   ) {}
 
 	createProd(prod:Prod){
@@ -62,7 +65,7 @@ export class ProdNewComponent {
     this.img_storage = '';
     let file = fileInput.target.files;
     for (let i=0; i < file.length; i++){
-      this.fileEvent(file[i]);
+      this.pic.resize([file[i]], 600, 600).subscribe(res=>this.fileEvent(res));
     }
   }
 

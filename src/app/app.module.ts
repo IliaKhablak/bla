@@ -23,6 +23,7 @@ import {ImageZoomModule} from 'angular2-image-zoom';
 import { BucketComponent } from './bucket/bucket.component';
 import {BucketService} from './services/bucket.service';
 import { PictureComponent } from './picture/picture.component';
+import { Ng2PicaModule } from 'ng2-pica';
 
   
 
@@ -48,7 +49,8 @@ import { PictureComponent } from './picture/picture.component';
     HttpModule,
     FormsModule,
     AngularDraggableModule,
-    ImageZoomModule
+    ImageZoomModule,
+    Ng2PicaModule
   ],
   providers: [
   Angular2TokenService,
