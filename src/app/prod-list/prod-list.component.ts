@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, trigger, state, animate, transition, style} from '@angular/core';
 import {Prod} from '../prod';
 import {ProdService} from '../services/prod.service';
 import {Router} from '@angular/router';
@@ -10,7 +10,20 @@ import {BucketService} from '../services/bucket.service';
 @Component({
   selector: 'app-prod-list',
   templateUrl: './prod-list.component.html',
-  styleUrls: ['./prod-list.component.sass']
+  styleUrls: ['./prod-list.component.sass'],
+  animations: [
+        trigger(
+      'enterAnimation', [
+        transition('void => *', [
+          style({opacity: 0}),
+          animate('400ms', style({opacity: 1}))
+        ]),
+        transition('* => void', [
+          style({opacity: 1}),
+          animate('400ms', style({opacity: 0}))
+        ])
+      ]
+    )]
 })
 export class ProdListComponent implements OnInit {
 

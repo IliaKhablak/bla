@@ -1,14 +1,11 @@
 
 <div class="navbar-fixed" style="margin-bottom: 100px;" >
-
   <nav  role="navigation" [class.z-depth-0]="!isHidden">
     <div class="nav-wrapper">
     <a materialize="sideNav" [materializeParams]="[{edge:'right', closeOnClick:true}]" href="#" data-activates="slide-out" class="button-collapse hide-on-large-only right"><i class="material-icons">menu</i></a>
     <div class="nav-wrapper blue">
       <a [routerLink]="['']" id="logo-container" class="brand-logo" style="margin-left: 10px;">Test App</a>
-
       <ul class="right hide-on-med-and-down">
-
          <li> <a [routerLink]="['/prods']" >CATALOG</a></li>
          <li > <a (click)="openNewProd()">ADD PPRODUCT</a></li>
          

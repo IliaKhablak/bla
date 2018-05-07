@@ -20,11 +20,11 @@ import {ProdService} from '../services/prod.service';
       'enterAnimation', [
         transition('void => *', [
           style({opacity: 0}),
-          animate('800ms', style({opacity: 1}))
+          animate('400ms', style({opacity: 1}))
         ]),
         transition('* => void', [
           style({opacity: 1}),
-          animate('800ms', style({opacity: 0}))
+          animate('400ms', style({opacity: 0}))
         ])
       ]
     )
@@ -36,8 +36,7 @@ export class ToolbarComponent implements OnInit {
   
   params = {hover: true, constrainWidth:false};
   isHidden: boolean = false;
-  // sidenavActions = new EventEmitter<any>();
-  // sidenavParams = [];
+  
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -73,7 +72,7 @@ export class ToolbarComponent implements OnInit {
   onScrollEvent($event){
     
    const verticalOffset = window.pageYOffset ||document.documentElement.scrollTop || document.body.scrollTop || 0;
-   if (verticalOffset > 300) {this.isHidden = true}else{this.isHidden = false}
+   if (verticalOffset > 250) {this.isHidden = true}else{this.isHidden = false}
    // console.log(verticalOffset);
   } 
 
