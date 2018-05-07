@@ -35,6 +35,7 @@ export class ProdShowComponent implements OnInit {
     public bucket:BucketService,
     private pic:Ng2PicaService
   ) { 
+    window.scrollTo(0, 0);
     this.route.params.subscribe(
       params => {this.id = params['id']}
     )

@@ -19,6 +19,7 @@ export class ProdService {
 	cats:string[] = [];
   	catItems:any;
   	prods:Prod[];
+  	nav:boolean = true;
 	
 
   constructor(private http:Http) {

@@ -1,7 +1,12 @@
 import { Component, OnInit, EventEmitter, ViewChild,  ElementRef } from '@angular/core';
-import {ActivatedRoute,Params, Router} from '@angular/router';
+import {ActivatedRoute,Params, Router, NavigationEnd, Event} from '@angular/router';
 import {MaterializeAction} from "angular2-materialize";
 import * as $ from 'jquery';
+import {ProdService} from '../services/prod.service';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/map';
+
 
 
 @Component({
@@ -15,7 +20,7 @@ export class PictureComponent implements OnInit {
 	imageURLs:string[] = [];
 	showInitialized = false;
 
-  constructor(private router:Router, private route:ActivatedRoute) {
+  constructor(private router:Router, private route:ActivatedRoute, private prod:ProdService) {
   	let self = this;
   	this.route.queryParams.subscribe(params=>{
   		let a = 0;
@@ -26,16 +31,25 @@ export class PictureComponent implements OnInit {
   		// console.log(this.imageURLs);
   	})
   	window.setTimeout(() => {
-      this.imageURLs = [this.imageURLs[0], ...this.imageURLs]; // duplicate the first iamge
+      // this.imageURLs = [this.imageURLs[0], ...this.imageURLs]; // duplicate the first iamge
       this.carouselElement.nativeElement.classList.toggle('initialized');
       this.actions.emit('carousel');
     }, 1000);
   	// this.carouselElement.
   	// this.carouselElement.nativeElement.classList.toggle("initialized");
   	// this.actions.emit("carousel");
+    // console.log('wow');
+    this.prod.nav = false;
   }
 
   ngOnInit() {
+    this.router.events.subscribe(res=>{
+      if(res instanceof NavigationEnd ){
+        let a = RegExp('/picture/');
+        let b = res.url;
+        if (a.test(b)){}else{this.prod.nav = true}
+      }else{}
+    })
   }
 
 }

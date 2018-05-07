@@ -1,5 +1,5 @@
 
-<div class="navbar-fixed" style="margin-bottom: 100px;" >
+<div class="navbar-fixed" style="margin-bottom: 100px;" *ngIf='prodService.nav'>
   <nav  role="navigation" [class.z-depth-0]="!isHidden">
     <div class="nav-wrapper">
 
@@ -53,10 +53,12 @@
 
         <li *ngIf="authService.userSignedIn$" routerLinkActive="active"><a [routerLink]="['/profile']">PROFILE</a></li>
         <li *ngIf="authService.userSignedIn$"><a (click)="logOut()">LOGOUT</a></li>
-        <li class="divider"></li>
-        <li class="center"><h4>Categoryes</h4></li>
-        <li *ngFor='let cat of prodService.cats'><a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a></li>
-        <li><a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></li>
+        <ng-container *ngIf='prodService.cats.length > 0'>
+          <li class="divider"></li>
+          <li class="center"><h4>Categoryes</h4></li>
+          <li *ngFor='let cat of prodService.cats'><a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a></li>
+          <li><a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></li>
+        </ng-container>
     </ul>
 
     

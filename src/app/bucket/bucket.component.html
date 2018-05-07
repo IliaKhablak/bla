@@ -20,10 +20,10 @@
 		          	<td class="hide-on-med-and-down"><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]"
                 [imageZoom]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]" [zoomLevelIncrement]='.3' style="width: auto; height: 30px;"></td>
                 	<td class="hide-on-large-only"><a (click)="openModal('https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0])" ><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]" style="width: auto; height: 30px;"></a></td>
-		            <td class="valign-wrapper"><b><a (click)="goToShow(list.prod.id)">{{list.prod.title}}</a>&nbsp;</b></td>
+		            <td class="valign-wrapper" style="overflow: hidden;width: 100px;"><b><a (click)="goToShow(list.prod.id)">{{list.prod.title}}</a>&nbsp;</b></td>
 		            <td><a (click)="deleteFromBucket(list.prod.id)" *ngIf="list.number > 1">-</a>&nbsp;<b>{{list.number}}</b>&nbsp;<a (click)="addToBucket(list.prod.id)">+</a></td>
 		            <td>
-		            	<a (click)="deleteFromBucket2(list.prod.id)" class="btn deep-orange darken-1 white-text waves-effect waves-light">DELETE</a>
+		            	<a (click)="deleteFromBucket2(list.prod.id)" class="btn deep-orange darken-1 white-text waves-effect waves-light"><i class="material-icons">delete</i></a>
 		            </td>
 		          </tr>
 		        </tbody>

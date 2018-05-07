@@ -26,6 +26,7 @@ export class BucketComponent implements OnInit {
   	private prodService:ProdService,
     private router:Router
   ) {
+    window.scrollTo(0, 0);
   		this.bucketService.getBucket().subscribe(res=>{
   			this.lists = res.json();
   		});

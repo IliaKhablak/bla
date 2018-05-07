@@ -66,13 +66,13 @@ export class ToolbarComponent implements OnInit {
   {
     window.setTimeout(() => {
       this.show = true;
-    }, 5000);
+    }, 1000);
     window.setTimeout(() => {
       this.show2 = true;
-    }, 6000);
+    }, 2000);
     window.setTimeout(() => {
       this.show3 = true;
-    }, 7000);
+    }, 3000);
   }
 
   ngOnInit(){
