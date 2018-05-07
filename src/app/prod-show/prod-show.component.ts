@@ -32,7 +32,7 @@ export class ProdShowComponent implements OnInit {
   	private route:ActivatedRoute,
   	private router:Router,
     private authService:Angular2TokenService,
-    private bucket:BucketService,
+    public bucket:BucketService,
     private pic:Ng2PicaService
   ) { 
     this.route.params.subscribe(

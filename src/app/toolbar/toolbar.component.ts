@@ -11,12 +11,13 @@ import {ProdService} from '../services/prod.service';
 
 
 
+
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.sass'],
   animations: [
-        trigger(
+     trigger(
       'enterAnimation', [
         transition('void => *', [
           style({opacity: 0}),
@@ -27,8 +28,21 @@ import {ProdService} from '../services/prod.service';
           animate('400ms', style({opacity: 0}))
         ])
       ]
-    )
+     )
     ]
+    // ),
+    //  trigger(
+    //    'pickFall', [
+    //     transition(':enter', [
+    //       style({transform: 'translateY(-100%)', opacity: 0}),
+    //       animate('2000ms', style({transform: 'translateY(0)', opacity: 1}))
+    //     ]),
+    //     transition(':leave', [
+    //       style({transform: 'translateY(0)', opacity: 1}),
+    //       animate('2000ms', style({transform: 'translateY(-100%)', opacity: 0}))
+    //     ])
+    //   ]
+    // )
 })
 export class ToolbarComponent implements OnInit {
 
@@ -36,6 +50,10 @@ export class ToolbarComponent implements OnInit {
   
   params = {hover: true, constrainWidth:false};
   isHidden: boolean = false;
+  // state:string = 'enter';
+  show:boolean = false;
+  show2: boolean = false;
+  show3: boolean = false;
   
 
   constructor(
@@ -44,7 +62,17 @@ export class ToolbarComponent implements OnInit {
     private router:Router,
     public bucketService:BucketService,
     public auth:Angular2TokenService,
-    public prodService:ProdService  ) {
+    public prodService:ProdService) 
+  {
+    window.setTimeout(() => {
+      this.show = true;
+    }, 5000);
+    window.setTimeout(() => {
+      this.show2 = true;
+    }, 6000);
+    window.setTimeout(() => {
+      this.show3 = true;
+    }, 7000);
   }
 
   ngOnInit(){
@@ -75,5 +103,9 @@ export class ToolbarComponent implements OnInit {
    if (verticalOffset > 250) {this.isHidden = true}else{this.isHidden = false}
    // console.log(verticalOffset);
   } 
+
+  // animateMe() {
+  //   this.state = (this.state === 'enter' ? 'leave' : 'leave');
+  // }
 
 }
