@@ -107,7 +107,7 @@ export class ProdShowComponent implements OnInit {
   fileEvent(data:any){
     let self = this;
     this.img_upload = true;
-    let params = {Bucket: this.prodService.env.bucket, Key: this.prod.id+'/'+data.name, Body: data};
+    let params = {Bucket: this.prodService.env.bucket, Key: this.prod.id+'/'+this.makeid(), Body: data};
     let s3 = new this.AWS.S3.ManagedUpload({params: params});
     s3.on('httpUploadProgress', function(evt) {
       $('#pus').css('width','0%');
@@ -118,6 +118,16 @@ export class ProdShowComponent implements OnInit {
       self.prodService.addFile(img, self.prod.id).subscribe(res => {self.prod = res.json();self.images = self.prod.image.split(',');});
       
     });
+  }
+
+  makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 20; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
   }
 
   delImg(img:string){

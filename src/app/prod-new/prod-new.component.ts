@@ -72,7 +72,7 @@ export class ProdNewComponent {
   fileEvent(data:any){
     this.img_upload = true;
     let self = this;
-    let params = {Bucket: this.prodService.env.bucket, Key: data.name, Body: data};
+    let params = {Bucket: this.prodService.env.bucket, Key: this.makeid(), Body: data};
     let s3 = new this.AWS.S3.ManagedUpload({params: params});
     s3.on('httpUploadProgress', function(evt) {
       $('#pus').css('width','0%');
@@ -83,6 +83,16 @@ export class ProdNewComponent {
       self.urls[a] = 'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+s3res.Key;
       self.img_storage = self.img_storage + s3res.Key+',';
     });
+  }
+
+  makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 20; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
   }
 
 }
