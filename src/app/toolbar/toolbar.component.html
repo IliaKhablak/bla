@@ -10,7 +10,7 @@
          <li > <a (click)="openNewProd()">ADD PPRODUCT</a></li>
          
          <li> <a  [routerLink]="['/bucket']" >BUCKET&nbsp;<span class="new badge red dropdown-button" data-badge-caption="products" materialize="dropdown" [materializeParams]="[getParams()]" data-activates='dropdown1' [materializeActions]="bucketService.dropActions" *ngIf="bucketService.amount">{{bucketService.amount}}</span></a>
-           <ul id='dropdown1' class='dropdown-content' style="overflow: visible;width: 200px;z-index: 10;position: relative;">
+           <ul id='dropdown1' class='dropdown-content' style="overflow: hidden;width: 200px;z-index: 10;position: relative;">
             <ng-container *ngFor="let bucket of bucketService.buckets">
               <li ><a href="#!" style="padding: 0px;width: 200px;">
                   <div class="row" style="margin:0px;">
@@ -50,6 +50,10 @@
 
         <li *ngIf="authService.userSignedIn$" routerLinkActive="active"><a [routerLink]="['/profile']">PROFILE</a></li>
         <li *ngIf="authService.userSignedIn$"><a (click)="logOut()">LOGOUT</a></li>
+        <li class="divider"></li>
+        <li class="center"><h4>Categoryes</h4></li>
+        <li *ngFor='let cat of prodService.cats'><a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a></li>
+        <li><a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></li>
     </ul>
 <app-auth-dialog #authDialog ></app-auth-dialog>
 <app-prod-new #prodNew></app-prod-new>

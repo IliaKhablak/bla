@@ -16,6 +16,9 @@ export class ProdService {
 	private prodsUrl = 'https://infinite-reaches-26736.herokuapp.com/prods';
 	env = new Env;
 	id:number;
+	cats:string[] = [];
+  	catItems:any;
+  	prods:Prod[];
 	
 
   constructor(private http:Http) {
@@ -66,9 +69,15 @@ export class ProdService {
 
 	openModal() {
 	    this.modalActions.emit({action:"modal",params:['open']});
-	  }
+	}
 
-	 closeModal() {
+	closeModal() {
 	    this.modalActions.emit({action:"modal",params:['close']});
-	  }
+	}
+
+	catShow(value){
+	    this.catItems = Object.assign([], this.prods).filter(
+	        item => item.category.toLowerCase().indexOf(value.toLowerCase()) > -1
+	    )
+	}
 }

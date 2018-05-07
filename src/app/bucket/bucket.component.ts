@@ -35,7 +35,7 @@ export class BucketComponent implements OnInit {
 
   addToBucket(id:number){
   	this.bucketService.addToBucket(id).subscribe(res=>{
-  		this.lists = res.json();
+  		this.bucketService.buckets = res.json();
       let a = [];
       res.json().forEach(function(el){
         a.push(el.number);
@@ -46,7 +46,7 @@ export class BucketComponent implements OnInit {
 
   deleteFromBucket(id:number){
   	this.bucketService.deleteFromBucket(id).subscribe(res=>{
-  		this.lists = res.json();
+  		this.bucketService.buckets = res.json();
       let a = [];
       res.json().forEach(function(el){
         a.push(el.number);
@@ -57,7 +57,7 @@ export class BucketComponent implements OnInit {
 
   deleteFromBucket2(id:number){
   	this.bucketService.deleteFromBucket2(id).subscribe(res=>{
-  		this.lists = res.json();
+  		this.bucketService.buckets = res.json();
       let a = [];
       res.json().forEach(function(el){
         a.push(el.number);

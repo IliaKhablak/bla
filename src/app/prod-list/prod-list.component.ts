@@ -7,6 +7,7 @@ import {BucketService} from '../services/bucket.service';
 
 
 
+
 @Component({
   selector: 'app-prod-list',
   templateUrl: './prod-list.component.html',
@@ -30,7 +31,8 @@ export class ProdListComponent implements OnInit {
 	prods:Prod[];
   bla:boolean = false;
   filteredItems:any;
-  shprod:Prod
+  shprod:Prod;
+  
 
   constructor(
     public prodService:ProdService, 
@@ -43,10 +45,27 @@ export class ProdListComponent implements OnInit {
   	timer.subscribe(() => this.getProds());
   }
 
-
   getProds(){
+    let self = this;
   	this.prodService.getProds()
-  	 .subscribe(prods => {this.prods = prods});
+  	 .subscribe(prods => {
+       this.prods = prods;
+       this.prodService.prods = prods;
+       prods.forEach(function (el) {
+         if (self.abc(el.category, self.prodService.cats)){
+         }else{
+           self.prodService.cats.push(el.category);
+         }
+       })
+     });
+     // console.log(this.cats);
+  }
+
+  abc(val,arr):boolean {
+    for (let i = 0; i < arr.length; i+=1){
+      if (val == arr[i]){return true}else{}
+    }
+    return false;
   }
 
   goToShow(prod:Prod):void {
@@ -92,4 +111,5 @@ export class ProdListComponent implements OnInit {
       this.shprod = null;
     }, 4000);
   }
+
 }
