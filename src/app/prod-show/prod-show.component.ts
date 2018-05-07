@@ -100,7 +100,7 @@ export class ProdShowComponent implements OnInit {
     this.AWS.config.update({region: 'ap-southeast-1', credentials: {"accessKeyId": this.prodService.env.id, "secretAccessKey": this.prodService.env.key}});
     let file = fileInput.target.files;
     for (let i=0; i < file.length; i++){
-      this.pic.resize([file[i]], 600, 600).subscribe(res=>this.fileEvent(res));
+      this.pic.resize([file[i]], 800, 800, true).subscribe(res=>this.fileEvent(res));
     }
   }
 

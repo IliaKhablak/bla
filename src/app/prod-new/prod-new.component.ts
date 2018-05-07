@@ -65,7 +65,7 @@ export class ProdNewComponent {
     this.img_storage = '';
     let file = fileInput.target.files;
     for (let i=0; i < file.length; i++){
-      this.pic.resize([file[i]], 600, 600).subscribe(res=>this.fileEvent(res));
+      this.pic.resize([file[i]], 800, 800, true).subscribe(res=>this.fileEvent(res));
     }
   }
 
@@ -78,11 +78,9 @@ export class ProdNewComponent {
       $('#pus').css('width','0%');
       $('#pus').css('width',evt.loaded*100/evt.total+'%');
     }).send(function(err, s3res) { 
-      // console.log('errors:',err);
       console.log('res:',s3res.Key);
       let a = self.urls.length;
       self.urls[a] = 'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+s3res.Key;
-      // $('#puscontainer').after("<img style='width:30px;height:auto;' src='https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/"+s3res.Key+"'>");
       self.img_storage = self.img_storage + s3res.Key+',';
     });
   }

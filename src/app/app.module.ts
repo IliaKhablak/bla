@@ -27,6 +27,7 @@ import { Ng2PicaModule } from 'ng2-pica';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
   
 
 @NgModule({

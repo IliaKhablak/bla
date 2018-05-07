@@ -30,6 +30,8 @@
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
+    "ion-multi-picker": "^2.1.2",
+    "ionic-module-template": "0.0.12",
     "jquery": "^3.3.1",
     "materialize-css": "^0.100.2",
     "ng2-image-hover-zoom": "^1.0.2",

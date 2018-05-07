@@ -11,12 +11,12 @@
          <li > <a (click)="openNewProd()">ADD PPRODUCT</a></li>
          
          <li> <a  [routerLink]="['/bucket']" >BUCKET&nbsp;<span class="new badge red dropdown-button" data-badge-caption="products" materialize="dropdown" [materializeParams]="[getParams()]" data-activates='dropdown1' [materializeActions]="bucketService.dropActions" *ngIf="bucketService.amount">{{bucketService.amount}}</span></a>
-           <ul id='dropdown1' class='dropdown-content' style="overflow: hidden;width: 200px;z-index: 10;position: relative;">
+           <ul id='dropdown1' class='dropdown-content' style="overflow: hidden;width: 200px;z-index: 10;position: relative;border-radius: 5px;">
             <ng-container *ngFor="let bucket of bucketService.buckets">
               <li ><a href="#!" style="padding: 0px;width: 200px;">
                   <div class="row" style="margin:0px;">
                     <div class="col s5" style="padding: 0px;height: 60px;">
-                      <img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+bucket.prod.image.split(',')[0]" style="width:auto; height: 100%;"></div>
+                      <img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+bucket.prod.image.split(',')[0]" style="width:50px; height: 100%;border-radius: 5px;"></div>
                       <div class="col s7" style="padding: 0px;height: 60px;">
                       <h6>{{bucket.prod.title}}</h6>Amount: {{bucket.number}}
                     </div>
@@ -56,8 +56,8 @@
         <ng-container *ngIf='prodService.cats.length > 0'>
           <li class="divider"></li>
           <li class="center"><h4>Categoryes</h4></li>
-          <li *ngFor='let cat of prodService.cats'><a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a></li>
-          <li><a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></li>
+          <li *ngFor='let cat of prodService.cats'><a class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a></li>
+          <li><a class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></li>
         </ng-container>
     </ul>
 

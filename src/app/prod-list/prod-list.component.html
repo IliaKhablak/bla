@@ -1,12 +1,12 @@
 
 <div class="row hide-on-large-only z-depth-5" *ngIf="shprod" [@enterAnimation] id="shprod">
 	<div class="col s3" style="height: 60px;padding: 0px;">
-		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+shprod.image.split(',')[0]" style="height: 100%;margin-left: 0px;border-radius: 5px;"> 
+		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+shprod.image.split(',')[0]" style="height: 100%;width:50px;margin-left: 0px;border-radius: 5px;"> 
 	</div>
 	<div class="col s9 center" style="font-size: 16px;overflow: hidden;"><b>{{shprod.title}}</b> added to bucket</div>
 </div>
 
-<div *ngIf='prodService.cats' class="row hide-on-med-and-down"><div class="col l8 offset-l2 center"><a *ngFor='let cat of prodService.cats' style="margin: 10px;" class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a><a  style="margin: 10px;" class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></div></div>
+<div *ngIf='prodService.cats' class="row hide-on-med-and-down"><div class="col l8 offset-l2 center"><a *ngFor='let cat of prodService.cats' style="margin: 10px;" class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a><a  style="margin: 10px;" class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></div></div>
  
 <div class="row" style="margin-top: 30px;">
     <div class="input-field col s12 m6 l4 offset-m3 offset-l4">
@@ -24,8 +24,8 @@
 	    		<span class="card-title truncate">{{prod.title}}</span>
 	    	</div>
 	    	 <div class="card-action">
-	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
-	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();smdispbucket(prod);" ><i class="material-icons">local_grocery_store</i></a>
+	    		<a class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
+	    		<a class="btn waves-effect waves-teal deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();smdispbucket(prod);" ><i class="material-icons">local_grocery_store</i></a>
 	    	</div>
     	</div>
   	</div>
@@ -40,8 +40,8 @@
 	    		<span class="card-title truncate">{{prod.title}}</span>
 	    	</div>
 	    	 <div class="card-action">
-	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
-	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();smdispbucket(prod);" ><i class="material-icons">local_grocery_store</i></a>
+	    		<a class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
+	    		<a class="btn waves-effect waves-teal deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();smdispbucket(prod);" ><i class="material-icons">local_grocery_store</i></a>
 	    	</div>
     	</div>
   	</div>
@@ -56,14 +56,14 @@
 	    		<span class="card-title truncate">{{prod.title}}</span>
 	    	</div>
 	    	 <div class="card-action">
-	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
-	    		<a class="btn waves-effect waves-light deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();smdispbucket(prod);" ><i class="material-icons">local_grocery_store</i></a>
+	    		<a class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
+	    		<a class="btn waves-effect waves-teal deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();smdispbucket(prod);" ><i class="material-icons">local_grocery_store</i></a>
 	    	</div>
     	</div>
   	</div>
 </div>
 <div class="fixed-action-btn hide-on-large-only">
-<a (click)="prodService.openModal()" class="btn-floating btn-large waves-effect waves-light blue darken-1"><i class="material-icons">add</i></a>
+<a (click)="prodService.openModal()" class="btn-floating btn-large waves-effect waves-teal blue darken-1"><i class="material-icons">add</i></a>
 </div>
 
 

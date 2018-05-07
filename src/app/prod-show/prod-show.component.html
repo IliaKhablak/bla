@@ -25,13 +25,13 @@
       </div>
       <div class="card-action">
         <a  (click)='deleteProd(prod.id)'
-                class="btn deep-orange darken-1 white-text waves-effect waves-light" style="margin: 10px;">DELETE
+                class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;">DELETE
         </a>
         <a (click)='openModal()'
-                class="btn deep-orange darken-1 white-text waves-effect waves-light" style="margin: 10px;">EDIT
+                class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;">EDIT
         </a>
         <a (click)='addToBucket(prod.id)'
-                class="btn deep-orange darken-1 white-text waves-effect waves-light" style="margin: 10px;" (click)="addclass($event);bucket.openDrop();"><i class="material-icons">local_grocery_store</i>
+                class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;" (click)="addclass($event);bucket.openDrop();"><i class="material-icons">local_grocery_store</i>
         </a>
       </div>
     </div>
@@ -63,7 +63,7 @@
                 [(ngModel)]='comment.text' required>
                 <label for="text">Comment</label>
             </div>
-            <button type="submit" class="btn deep-orange darken-1 white-text waves-effect waves-light" [disabled]="!commentForm.form.valid">Leave comment</button>
+            <button type="submit" class="btn deep-orange darken-1 white-text waves-effect waves-teal" [disabled]="!commentForm.form.valid">Leave comment</button>
           </div>
         </form>
       </div>
@@ -112,7 +112,7 @@
         </div>
       </div>
         <div>
-          <button type="submit" class="waves-effect waves-light btn" [disabled]="!prodForm.form.valid">Aply changes</button>
+          <button type="submit" class="waves-effect waves-teal btn" [disabled]="!prodForm.form.valid">Aply changes</button>
         </div>
       </form>
     </div>
