@@ -31,14 +31,14 @@ export class ProdListComponent implements OnInit {
 	prods:Prod[];
   bla:boolean = false;
   filteredItems:any;
-  shprod:Prod;
+ 
   
 
   constructor(
     public prodService:ProdService, 
     private router:Router,
     private bucket:BucketService
-  ) { }
+  ) {}
 
   ngOnInit() {
   	let timer = Observable.timer(0, 5000);
@@ -103,13 +103,6 @@ export class ProdListComponent implements OnInit {
        // item=>console.log(item.title)
         item => item.title.toLowerCase().indexOf(value.toLowerCase()) > -1
      )
-  }
-
-  smdispbucket(prod:Prod){
-    this.shprod = prod;
-    window.setTimeout(() => {
-      this.shprod = null;
-    }, 4000);
   }
 
 }

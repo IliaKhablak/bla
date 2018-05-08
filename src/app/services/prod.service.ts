@@ -20,7 +20,8 @@ export class ProdService {
   	catItems:any;
   	prods:Prod[];
   	nav:boolean = true;
-	
+	shprod:Prod;
+    addBtn:boolean = false;
 
   constructor(private http:Http) {
   	this.headers = new Headers({'Content-Type':'application/json'});
@@ -81,4 +82,13 @@ export class ProdService {
 	        item => item.category.toLowerCase().indexOf(value.toLowerCase()) > -1
 	    )
 	}
+
+	smdispbucket(prod:Prod){
+	    this.shprod = prod;
+	    this.addBtn = true;
+	    window.setTimeout(() => {
+	      this.shprod = null;
+	      this.addBtn = false;
+	    }, 4000);
+	  }
 }

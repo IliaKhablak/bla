@@ -25,13 +25,13 @@
       </div>
       <div class="card-action">
         <a  (click)='deleteProd(prod.id)'
-                class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;">DELETE
+                class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;"><i class="material-icons">delete</i>
         </a>
         <a (click)='openModal()'
-                class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;">EDIT
+                class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;"><i class="material-icons">edit</i>
         </a>
         <a (click)='addToBucket(prod.id)'
-                class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;" (click)="addclass($event);bucket.openDrop();"><i class="material-icons">local_grocery_store</i>
+                class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;" (click)="addclass($event);bucket.openDrop();prodService.smdispbucket(prod);" [class.disabled]="prodService.addBtn"><i class="material-icons">local_grocery_store</i>
         </a>
       </div>
     </div>

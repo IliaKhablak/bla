@@ -28,7 +28,7 @@ export class ProdShowComponent implements OnInit {
 
 
   constructor(
-  	private prodService:ProdService, 
+  	public prodService:ProdService, 
   	private route:ActivatedRoute,
   	private router:Router,
     private authService:Angular2TokenService,

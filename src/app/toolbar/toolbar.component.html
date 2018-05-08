@@ -3,7 +3,7 @@
   <nav  role="navigation" [class.z-depth-0]="!isHidden">
     <div class="nav-wrapper">
 
-    <a materialize="sideNav" [materializeParams]="[{edge:'right', closeOnClick:true}]" href="#" data-activates="slide-out" class="button-collapse hide-on-large-only right"><i class="material-icons">menu</i></a>
+    <a materialize="sideNav" [materializeParams]="[{edge:'right', closeOnClick:true}]" href="#" data-activates="slide-out" class="button-collapse hide-on-large-only right" style="right:-15px;top:-15px;"><i class="material-icons">menu</i></a>
     <div class="nav-wrapper blue">
      <!--  <a [routerLink]="['']" id="logo-container" class="brand-logo" style="margin-left: 10px;">Test App</a> -->
       <ul class="right hide-on-med-and-down">
@@ -40,10 +40,10 @@
   </nav>
    <div class="blue" *ngIf='!isHidden' [@enterAnimation] style="position: fixed;top:55px;height: 100px;width: 100%;z-index: -1">
     </div>
-    <img src="./assets/images/s9 ilia.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:30px;height: 220px;" class="step" [class.show]='show'>
-    <img src='./assets/images/ilia iphone.png' *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:80px;top:-40px;height: 190px;" class="step hide-on-small-only" [class.show]='show2'>
-    <img src="./assets/images/com name.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:110px;top:-20px;height: 200px;" class="step hide-on-small-only" [class.show]='show3'>
-    <img src="./assets/images/com name.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:10px;top:-20px;height: 200px;" class="step hide-on-med-and-up" [class.show]='show3'>
+    <img src="./assets/images/s9 ilia.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:20px;top:5px;height: 170px;" class="step" [class.show]='show'>
+    <img src='./assets/images/ilia iphone.png' *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:170px;top:10px;height: 140px;" class="step hide-on-small-only" [class.show]='show2'>
+    <img src="./assets/images/com name.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:300px;top:5px;height: 150px;" class="step hide-on-small-only" [class.show]='show3'>
+    <img src="./assets/images/com name.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:170px;top:20px;height: 120px;" class="step hide-on-med-and-up" [class.show]='show3'>
 </div>
 <ul id="slide-out" class="side-nav" style="z-index: 1000;">
          <li routerLinkActive="active"> <a [routerLink]="['/prods']" >PRODUCTS</a></li>
@@ -60,6 +60,21 @@
           <li><a class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></li>
         </ng-container>
     </ul>
+
+    <div class="row hide-on-large-only z-depth-5 shprod" *ngIf="prodService.shprod" [@popupAnim]>
+      <div class="col s3" style="height: 60px;padding: 0px;">
+        <img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prodService.shprod.image.split(',')[0]" style="height: 100%;width:50px;margin-left: 0px;border-radius: 5px;"> 
+      </div>
+      <div class="col s9 center" style="font-size: 16px;overflow: hidden;"><b>{{prodService.shprod.title}}</b> added to bucket</div>
+    </div>
+    <div class="shprod3 hide-on-large-only" *ngIf="adv" [@enterAnimation]></div>
+    <div class="row hide-on-large-only shprod2" *ngIf="adv" [@enterAnimation]>
+      <div class="col s12">
+        <b>SWIPE LEFT</b>
+      </div>
+    </div>
+    
+    <div style="height: 2000px; width: 100%; background-color: black; opacity: 0.7;position: fixed;top:-200px;z-index: 10000;" class="hide-on-large-only" *ngIf="adv2" [@enterAnimation]></div>
 
 <!-- <div class="parallax-container"><div class="parallax" materialize="parallax"><img src="./assets/images/s9 ilia.png" style="height: 1000px;width: auto;"></div></div> -->
 <app-auth-dialog #authDialog ></app-auth-dialog>

@@ -28,6 +28,18 @@ import {ProdService} from '../services/prod.service';
           animate('400ms', style({opacity: 0}))
         ])
       ]
+     ),
+     trigger(
+      'popupAnim', [
+        transition('void => *', [
+          style({transform: 'translateY(100%)',opacity: 0}),
+          animate('400ms', style({transform: 'translateY(0)',opacity: 1}))
+        ]),
+        transition('* => void', [
+          style({transform: 'translateY(0)',opacity: 1}),
+          animate('400ms', style({transform: 'translateY(-100%)',opacity: 0}))
+        ])
+      ]
      )
     ]
     // ),
@@ -54,7 +66,8 @@ export class ToolbarComponent implements OnInit {
   show:boolean = false;
   show2: boolean = false;
   show3: boolean = false;
-  
+  adv:boolean = false;
+  adv2:boolean = false;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -69,10 +82,20 @@ export class ToolbarComponent implements OnInit {
     }, 1000);
     window.setTimeout(() => {
       this.show2 = true;
-    }, 2000);
+    }, 1500);
     window.setTimeout(() => {
       this.show3 = true;
-    }, 3000);
+    }, 2000);
+    window.setTimeout(() => {
+      this.adv2 = true;
+    }, 2000);
+    window.setTimeout(() => {
+      this.adv = true;
+    }, 2100);
+    window.setTimeout(() => {
+      this.adv = false;
+      this.adv2 = false;
+    }, 4000);
   }
 
   ngOnInit(){
