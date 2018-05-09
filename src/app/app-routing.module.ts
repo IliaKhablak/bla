@@ -7,7 +7,6 @@ import {ProdListComponent} from './prod-list/prod-list.component';
 import {ProdShowComponent} from './prod-show/prod-show.component';
 import {ProdNewComponent} from './prod-new/prod-new.component';
 import {BucketComponent} from './bucket/bucket.component';
-import {PictureComponent} from './picture/picture.component';
 
 
 const routes: Routes = [
@@ -17,8 +16,7 @@ const routes: Routes = [
 	{path: 'prods', component: ProdListComponent},
 	{path: 'prods/:id', component: ProdShowComponent},
 	{path: 'prod/new', component: ProdNewComponent},
-	{path: 'bucket', component: BucketComponent},
-	{path: 'picture/:id', component: PictureComponent}
+	{path: 'bucket', component: BucketComponent}
 
 ];
 

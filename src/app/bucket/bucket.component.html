@@ -6,8 +6,8 @@
       <div class="card-content" style="min-height: 400px;">
         <div class="row ">
           <div class="col l12 s12" style="overflow: auto;">
-            <h3 *ngIf="lists.length < 1"> Is empty</h3>
-            <table *ngIf="lists.length > 0">
+            <h3 *ngIf="lists && lists.length < 1"> Is empty</h3>
+            <table *ngIf="lists && lists.length > 0">
 		        <thead>
 		          <tr>
 		          	  <th>Image</th>
@@ -17,9 +17,7 @@
 		        </thead>
 		        <tbody>
 		          <tr *ngFor="let list of bucketService.buckets">
-		          	<td class="hide-on-med-and-down"><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]"
-                [imageZoom]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]" [zoomLevelIncrement]='.3' style="width: auto; height: 30px;"></td>
-                	<td class="hide-on-large-only"><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]" style="width: auto; height: 30px;" materialize="materialbox" class="materialboxed"></td>
+                	<td><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]" style="width: 200px; height: auto;" materialize="materialbox" class="materialboxed responsive-img"></td>
 		            <td class="valign-wrapper" style="overflow: hidden;width: 100px;"><b><a (click)="goToShow(list.prod.id)">{{list.prod.title}}</a>&nbsp;</b></td>
 		            <td style="font-size: 20px;"><a (click)="deleteFromBucket(list.prod.id)" *ngIf="list.number > 1"><</a>&nbsp;<b>{{list.number}}</b>&nbsp;<a (click)="addToBucket(list.prod.id)">></a></td>
 		            <td>
@@ -33,9 +31,4 @@
       </div>
     </div>
   </div>
-</div>
-<div class="modal" materialize="modal" [materializeActions]="modalActions" ngDraggable>
-    <div class="modal-content">
-    	<img [src]="url">
-    </div>
 </div>

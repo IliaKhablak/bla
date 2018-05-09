@@ -22,7 +22,6 @@ import { AngularDraggableModule } from 'angular2-draggable';
 import {ImageZoomModule} from 'angular2-image-zoom';
 import { BucketComponent } from './bucket/bucket.component';
 import {BucketService} from './services/bucket.service';
-import { PictureComponent } from './picture/picture.component';
 import { Ng2PicaModule } from 'ng2-pica';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -41,8 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProdListComponent,
     ProdShowComponent,
     ProdNewComponent,
-    BucketComponent,
-    PictureComponent
+    BucketComponent
   ],
   imports: [
     BrowserModule,

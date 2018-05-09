@@ -19,6 +19,7 @@ export class ProdNewComponent {
   img_upload:boolean = false;
   img_storage:string = "";
   AWS = require('aws-sdk');
+  sucess:boolean = false;
 
 
   constructor(
@@ -70,6 +71,7 @@ export class ProdNewComponent {
   }
 
   fileEvent(data:any){
+    this.sucess = false;
     this.img_upload = true;
     let self = this;
     let params = {Bucket: this.prodService.env.bucket, Key: this.makeid(), Body: data};
@@ -78,7 +80,7 @@ export class ProdNewComponent {
       $('#pus').css('width','0%');
       $('#pus').css('width',evt.loaded*100/evt.total+'%');
     }).send(function(error, s3res) { 
-      if (error) {self.err = error.message;}else{};
+      if (error) {self.err = error.message;}else{self.sucess = true;};
       let a = self.urls.length;
       self.urls[a] = 'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+s3res.Key;
       self.img_storage = self.img_storage + s3res.Key+',';

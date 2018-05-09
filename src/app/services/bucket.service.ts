@@ -52,4 +52,11 @@ export class BucketService {
     }, 4000);
   }
 
+  addclass(event){
+    event.target.classList.toggle('disabled');
+    window.setTimeout(() => {
+      event.target.classList.remove('disabled');
+    }, 4500);
+  }
+
 }

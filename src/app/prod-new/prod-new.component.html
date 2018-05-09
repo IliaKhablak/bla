@@ -3,6 +3,7 @@
 <div class="modal" materialize="modal" [materializeActions]="prodService.modalActions" ngDraggable>
     <div class="modal-content">
 		<div class="row">
+			<p style="margin-right: -10px;margin-top: -10px;" class="right sucess-alert">I'm draggable</p>
 			<h3 class="grey-text text-darken-2 center">Add new product</h3>
 			<form (ngSubmit)="createProd(prod); prodForm.reset();" #prodForm='ngForm' class="col l8 s12 offset-l2">
 				<div class="row">
@@ -39,7 +40,8 @@
 			    			<input class="file-path validate" type="text" placeholder="Image require">
 						</div>
 						<div *ngIf='err' class="err-alert">{{err}}</div>
-						<div class="progress" *ngIf="img_upload && !err" id="puscontainer">
+						<div *ngIf='sucess' class="sucess-alert">Well done!</div>
+						<div class="progress" *ngIf="img_upload && !err && !sucess" id="puscontainer">
 							<div class='determinate' id='pus' style='width: 0%'></div>
 						</div>
 					</div>

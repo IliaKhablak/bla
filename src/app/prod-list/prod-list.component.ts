@@ -28,7 +28,6 @@ import {BucketService} from '../services/bucket.service';
 })
 export class ProdListComponent implements OnInit {
 
-	prods:Prod[];
   bla:boolean = false;
   filteredItems:any;
  
@@ -37,19 +36,11 @@ export class ProdListComponent implements OnInit {
   constructor(
     public prodService:ProdService, 
     private router:Router,
-    private bucket:BucketService
-  ) {}
-
-  ngOnInit() {
-  	let timer = Observable.timer(0, 5000);
-  	timer.subscribe(() => this.getProds());
-  }
-
-  getProds(){
+    public bucket:BucketService
+  ) {
     let self = this;
-  	this.prodService.getProds()
-  	 .subscribe(prods => {
-       this.prods = prods;
+    this.prodService.getProds()
+     .subscribe(prods => {
        this.prodService.prods = prods;
        prods.forEach(function (el) {
          if (self.abc(el.category, self.prodService.cats)){
@@ -58,7 +49,9 @@ export class ProdListComponent implements OnInit {
          }
        })
      });
-     // console.log(this.cats);
+  }
+
+  ngOnInit() {
   }
 
   abc(val,arr):boolean {
@@ -86,20 +79,13 @@ export class ProdListComponent implements OnInit {
     // this.bucket.openDrop();
   }
 
-  addclass(event){
-    event.target.classList.toggle('spinable');
-    window.setTimeout(() => {
-      event.target.classList.remove('spinable');
-    }, 1000);
-  }
-
   assignCopy(){
-   this.filteredItems = Object.assign([], this.prods);
+   this.filteredItems = Object.assign([], this.prodService.prods);
   }
 
   filterItem(value){
      if(!value) this.assignCopy(); //when nothing has typed
-     this.filteredItems = Object.assign([], this.prods).filter(
+     this.filteredItems = Object.assign([], this.prodService.prods).filter(
        // item=>console.log(item.title)
         item => item.title.toLowerCase().indexOf(value.toLowerCase()) > -1
      )

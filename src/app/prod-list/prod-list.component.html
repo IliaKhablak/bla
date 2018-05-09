@@ -1,6 +1,6 @@
 
 
-<div *ngIf='prodService.cats' class="row hide-on-med-and-down"><div class="col l8 offset-l2 center"><a *ngFor='let cat of prodService.cats' style="margin: 10px;" class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a><a  style="margin: 10px;" class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></div></div>
+<div *ngIf='prodService.cats.length > 0' class="row hide-on-med-and-down"><div class="col l8 offset-l2 center"><a *ngFor='let cat of prodService.cats' style="margin: 10px;" class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a><a  style="margin: 10px;" class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></div></div>
  
 <div class="row" style="margin-top: 30px;">
     <div class="input-field col s12 m6 l4 offset-m3 offset-l4">
@@ -12,14 +12,14 @@
     <div class="col s12 m6 l3" *ngFor="let prod of prods" style="margin-top: 30px;">
 	    <div class="card hoverable medium"  >
 	    	<div class="card-image">
-          		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]">
+          		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]" style="height: 240px;width: auto;margin-left: auto;margin-right: auto;">
           	</div>
 	    	<div class="card-content " style="overflow: hidden;">
 	    		<span class="card-title truncate">{{prod.title}}</span>
 	    	</div>
 	    	 <div class="card-action">
 	    		<a class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="goToShow(prod)">VIEW</a>
-	    		<a class="btn waves-effect waves-teal deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);addclass($event);bucket.openDrop();prodService.smdispbucket(prod);" [class.disabled]="prodService.addBtn"><i class="material-icons">local_grocery_store</i></a>
+	    		<a class="btn waves-effect waves-teal deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);bucket.addclass($event);prodService.smdispbucket(prod);"><i class="material-icons">local_grocery_store</i></a>
 	    	</div>
     	</div>
   	</div>
@@ -28,7 +28,7 @@
     <div class="col s12 m6 l3" *ngFor="let prod of filteredItems" style="margin-top: 30px;">
 	    <div class="card hoverable medium"  >
 	    	<div class="card-image">
-          		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]">
+          		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]" class="responsive-img">
           	</div>
 	    	<div class="card-content " style="overflow: hidden;">
 	    		<span class="card-title truncate">{{prod.title}}</span>
@@ -44,7 +44,7 @@
     <div class="col s12 m6 l3" *ngFor="let prod of prodService.catItems" style="margin-top: 30px;">
 	    <div class="card hoverable medium"  >
 	    	<div class="card-image">
-          		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]">
+          		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]" class="responsive-img">
           	</div>
 	    	<div class="card-content " style="overflow: hidden;">
 	    		<span class="card-title truncate">{{prod.title}}</span>

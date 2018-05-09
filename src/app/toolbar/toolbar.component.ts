@@ -95,7 +95,7 @@ export class ToolbarComponent implements OnInit {
     window.setTimeout(() => {
       this.adv = false;
       this.adv2 = false;
-    }, 5000);
+    }, 4000);
   }
 
   ngOnInit(){
