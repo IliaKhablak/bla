@@ -1,9 +1,9 @@
-import { Component, OnInit, EventEmitter, Input} from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, ViewChild} from '@angular/core';
 import {Prod} from '../prod';
 import {ProdService} from '../services/prod.service';
 import {Observable} from 'rxjs/Rx';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {MaterializeAction} from "angular2-materialize";
+import {MaterializeAction, MaterializeDirective} from "angular2-materialize";
 import * as $ from 'jquery';
 import {Comment} from '../comment';
 import {Angular2TokenService} from "angular2-token";
@@ -25,6 +25,7 @@ export class ProdShowComponent implements OnInit {
   comments:Comment[];
   prod = new Prod;
   comment = new Comment;
+  err:string;
 
 
   constructor(
@@ -112,7 +113,8 @@ export class ProdShowComponent implements OnInit {
     s3.on('httpUploadProgress', function(evt) {
       $('#pus').css('width','0%');
       $('#pus').css('width',evt.loaded*100/evt.total+'%');
-    }).send(function(err, s3res) { 
+    }).send(function(error, s3res) { 
+      if (error) {self.err = error.message;}else{};
       let img:string;
       if(self.prod.image){img = ','+s3res.Key}else{img = s3res.Key};
       self.prodService.addFile(img, self.prod.id).subscribe(res => {self.prod = res.json();self.images = self.prod.image.split(',');});
@@ -177,5 +179,4 @@ export class ProdShowComponent implements OnInit {
       event.target.classList.remove('spinable');
     }, 1000);
   }
-
 }

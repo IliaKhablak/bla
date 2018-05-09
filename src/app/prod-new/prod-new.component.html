@@ -38,9 +38,10 @@
 						<div class="file-path-wrapper">
 			    			<input class="file-path validate" type="text" placeholder="Image require">
 						</div>
-						<div class="progress" *ngIf="img_upload" id="puscontainer">
-						<div class='determinate' id='pus' style='width: 0%'></div>
-					</div>
+						<div *ngIf='err' class="err-alert">{{err}}</div>
+						<div class="progress" *ngIf="img_upload && !err" id="puscontainer">
+							<div class='determinate' id='pus' style='width: 0%'></div>
+						</div>
 					</div>
 				</div>
 				<div *ngIf="urls.length > 0">
