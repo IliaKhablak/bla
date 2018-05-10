@@ -19,7 +19,7 @@ export class BucketComponent implements OnInit {
   url:string;
 
   constructor(
-  	private bucketService:BucketService,
+  	public bucketService:BucketService,
   	private auth:Angular2TokenService,
   	private prodService:ProdService,
     private router:Router
