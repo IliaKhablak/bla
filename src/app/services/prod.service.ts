@@ -18,7 +18,7 @@ export class ProdService {
 	id:number;
 	cats:string[] = [];
   	catItems:any;
-  	prods:Prod[];
+  	prods:Prod[] = [];
   	nav:boolean = true;
 	shprod:Prod;
 
@@ -34,7 +34,7 @@ export class ProdService {
 			.map((response: Response) => <Prod[]>response.json())
 	}
 
-	createProd(prod:Prod): Observable<Prod>{
+	createProd(prod:Prod){
 		return this.http.post(this.prodsUrl,JSON.stringify(prod),this.options)
 			.map((res: Response) => res.json());
 	}
@@ -89,5 +89,12 @@ export class ProdService {
 	      this.shprod = null;
 	      
 	    }, 4000);
+	  }
+
+	abc(val,arr):boolean {
+	    for (let i = 0; i < arr.length; i+=1){
+	      if (val == arr[i]){return true}else{}
+	    }
+	    return false;
 	  }
 }

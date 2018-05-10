@@ -9,7 +9,7 @@
     </div>
 </div>
  <div class="row" *ngIf="!filteredItems && !prodService.catItems">
-    <div class="col s12 m6 l3" *ngFor="let prod of prods" style="margin-top: 30px;">
+    <div class="col s12 m6 l3" *ngFor="let prod of prodService.prods" style="margin-top: 30px;">
 	    <div class="card hoverable medium"  >
 	    	<div class="card-image">
           		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]" style="height: 240px;width: auto;margin-left: auto;margin-right: auto;">

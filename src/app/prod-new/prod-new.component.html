@@ -47,7 +47,7 @@
 					</div>
 				</div>
 				<div *ngIf="urls.length > 0">
-					<img *ngFor="let url of urls" style='width:30px;height:auto;margin:5px;' [src]="url">
+					<img *ngFor="let url of urls" style='width:60px;height:auto;margin:5px;' [src]="url">
 				</div>
 				<div>
 					<button type="submit" class="waves-effect waves-teal btn" [disabled]="!prodForm.form.valid">Create</button>

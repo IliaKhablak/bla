@@ -42,23 +42,18 @@ export class ProdListComponent implements OnInit {
     this.prodService.getProds()
      .subscribe(prods => {
        this.prodService.prods = prods;
+       let z = 0;
+       self.prodService.cats = []
        prods.forEach(function (el) {
-         if (self.abc(el.category, self.prodService.cats)){
-         }else{
-           self.prodService.cats.push(el.category);
-         }
-       })
+             if (self.prodService.abc(el.category, self.prodService.cats)){
+             }else{
+               self.prodService.cats[z] = (el.category);z+=1;
+             }
+           })
      });
   }
 
   ngOnInit() {
-  }
-
-  abc(val,arr):boolean {
-    for (let i = 0; i < arr.length; i+=1){
-      if (val == arr[i]){return true}else{}
-    }
-    return false;
   }
 
   goToShow(prod:Prod):void {

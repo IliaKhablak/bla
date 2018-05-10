@@ -29,7 +29,6 @@ export class ProdNewComponent {
   ) {}
 
 	createProd(prod:Prod){
-    console.log(prod.category);
     let self = this;
     prod.image = this.img_storage.slice(0, -1);
 		this.prodService.createProd(prod)
@@ -37,18 +36,27 @@ export class ProdNewComponent {
 				data=>{
           let a = prod.image.split(',');
           a.forEach(function(element){
-       
-
-            let s3 = new self.AWS.S3().copyObject({Bucket: self.prodService.env.bucket+'/'+data.id, CopySource: self.prodService.env.bucket+'/'+element, Key: element}, function(err, data) {
-             if (err) console.log(err, err.stack); // an error occurred
-             else     console.log(data);
-
+            let s3 = new self.AWS.S3().copyObject({Bucket: self.prodService.env.bucket+'/'+data.prod.id, CopySource: self.prodService.env.bucket+'/'+element, Key: element}, function(err, data) {
+             if (err) {} 
+             else     {}
              let s3 = new self.AWS.S3().deleteObject({Bucket: self.prodService.env.bucket, Key: element},function(err, data) {
-               if (err) console.log(err, err.stack); // an error occurred
-               else     console.log(data);           // successful response
-             });           // successful response
+               if (err) {} 
+               else    {}      
+             });           
            });
           })
+          let z = 0;
+          self.prodService.cats = []
+          data.prods.forEach(function (el) {
+             if (self.prodService.abc(el.category, self.prodService.cats)){
+             }else{
+               self.prodService.cats[z] = (el.category);z+=1;
+             }
+             
+           })
+          window.setTimeout(() => {
+            this.prodService.prods = data.prods;
+          }, 2000);
 					this.prodService.closeModal();
           this.img_upload = false;
           $('img').remove();

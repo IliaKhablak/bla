@@ -84,8 +84,14 @@
             id="title" #title='ngModel' class="validate"
             [(ngModel)]='prod.title' required>
           </div>
-  
-        
+          <div class="input-field col s6">
+             <h5 class="grey-text text-darken-2">Category</h5>
+            <input type="text" name="category"
+            id="category" #category='ngModel' class="validate"
+            [(ngModel)]='prod.category' required>
+          </div>
+        </div>
+        <div class="row">
           <div class="input-field col s6">
             <h5 class="grey-text text-darken-2">Description</h5>
             <textarea class="materialize-textarea validate" id="description"
@@ -93,8 +99,6 @@
               [(ngModel)]='prod.description' rows="2" required>
             </textarea>
           </div>
-        </div>
-        <div class="row">
           <div class="file-field input-field col s6">
               <div class="btn">
                 <span>File</span>

@@ -73,12 +73,21 @@ export class ProdShowComponent implements OnInit {
       let a = this.prod.image.split(',');
       a.forEach(function(element){
         let s3 = new self.AWS.S3().deleteObject({Bucket: self.prodService.env.bucket, Key: element},function(err, data) {
-          if (err) {} // an error occurred
-          else     {}         // successful response
+          if (err) {} 
+          else     {}        
         }); 
       });
     	this.prodService.deleteProd(id)
     	  .subscribe(res=>{
+          let z = 0;
+          self.prodService.cats = []
+          res.json().forEach(function (el) {
+             if (self.prodService.abc(el.category, self.prodService.cats)){
+             }else{
+               self.prodService.cats[z] = (el.category);z+=1;
+             }
+             
+           })
           this.prodService.prods = res.json();
           this.router.navigate(['/prods']);
         });
@@ -103,6 +112,10 @@ export class ProdShowComponent implements OnInit {
   update(prod: Prod){
     this.prodService.updateProd(prod)
       .subscribe(data => {
+        if (prod.category == data.category){
+             }else{
+               this.prodService.cats.push(data.category);
+             } 
         let self = this;
         this.prod = data;
         let a = 0;
