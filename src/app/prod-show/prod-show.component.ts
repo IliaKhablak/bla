@@ -61,6 +61,14 @@ export class ProdShowComponent implements OnInit {
       this.carouselElement.nativeElement.classList.toggle('initialized');
       this.actions.emit('carousel');
     })
+
+    window.setTimeout(() => {
+      console.log($('div').last().offset().top+200);
+      $('body').css({
+        "hight": $('div').last().offset().top+200+" !important"
+      })
+    }, 5000);
+    
   }
 
   ngOnInit() {

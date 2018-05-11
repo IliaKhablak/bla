@@ -85,10 +85,24 @@
     </div>
     
     <div style="height: 2000px; width: 100%; background-color: black; opacity: 0.7;position: fixed;top:-200px;z-index: 10000;" class="hide-on-large-only" *ngIf="adv2"></div>
-
-    <!-- <img src="./assets/images/M7pcpWqxJ69FydiIbrCF" class="img_par"> -->
-
-<!-- <div class="parallax-container"><div class="parallax" materialize="parallax"><img src="./assets/images/s9 ilia.png" style="height: 1000px;width: auto;"></div></div> -->
+    <!-- <div class="img_par">
+      <img src="./assets/images/M7pcpWqxJ69FydiIbrCF" class="responsive-img">
+    <div> -->
+    <div class="parallax-container par1">
+      <div class="parallax" materialize="parallax"><img src="./assets/images/city2.jpg"></div>
+    </div>
+    <div class="parallax-container par2" *ngIf='parHide'>
+      <div class="parallax" materialize="parallax"><img src="./assets/images/city2.jpg"></div>
+    </div>
+    <div class="parallax-container par3" *ngIf='parHide2'>
+      <div class="parallax" materialize="parallax"><img src="./assets/images/city2.jpg"></div>
+    </div>
+    <!-- <div class="parallax-container">
+      <div class="parallax" materialize="parallax" style="margin-top: 4000px;"><img src="./assets/images/city2.jpg"></div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax" materialize="parallax" style="margin-top: 6000px;"><img src="./assets/images/city2.jpg"></div>
+    </div> -->
 <app-auth-dialog #authDialog ></app-auth-dialog>
 <app-prod-new #prodNew></app-prod-new>
 

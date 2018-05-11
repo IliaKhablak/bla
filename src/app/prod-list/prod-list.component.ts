@@ -4,6 +4,7 @@ import {ProdService} from '../services/prod.service';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs/Rx';
 import {BucketService} from '../services/bucket.service';
+import * as $ from 'jquery';
 
 
 
