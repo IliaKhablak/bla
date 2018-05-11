@@ -12,10 +12,10 @@
             <i class="fa fa-user-circle-o blue-grey-text darken-2" style="font-size: 8em" aria-hidden="true"></i>
           </div>
 
-          <div *ngIf="authTokenService.currentUserData" class="col l8 s12" >
+          <div *ngIf="authService.user" class="col l8 s12" >
 
             <ul class="collection grey-text text-darken-2">
-              <li class="collection-item">Email:  <b>{{authTokenService.currentUserData.email}}</b></li>
+              <li class="collection-item">Email:  <b>{{authService.user.email}}</b></li>
 
             </ul>
           </div>
@@ -29,6 +29,11 @@
                 class="btn btn-block deep-orange darken-1 white-text waves-effect waves-light right"
         >
           LOGOUT
+        </button>
+        <button (click)="deleteAccount()"
+                class="btn btn-block deep-orange darken-1 white-text waves-effect waves-light right"
+        >
+          DELETE ACCOUNT
         </button>
 
       </div>

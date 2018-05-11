@@ -4,9 +4,9 @@ import {AuthDialogComponent} from "../auth-dialog/auth-dialog.component";
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 import {BucketService} from '../services/bucket.service';
-import {Angular2TokenService} from "angular2-token";
 import {MaterializeDirective} from "angular2-materialize";
 import {ProdService} from '../services/prod.service';
+import * as $ from 'jquery';
 
 
 
@@ -42,19 +42,6 @@ import {ProdService} from '../services/prod.service';
       ]
      )
     ]
-    // ),
-    //  trigger(
-    //    'pickFall', [
-    //     transition(':enter', [
-    //       style({transform: 'translateY(-100%)', opacity: 0}),
-    //       animate('2000ms', style({transform: 'translateY(0)', opacity: 1}))
-    //     ]),
-    //     transition(':leave', [
-    //       style({transform: 'translateY(0)', opacity: 1}),
-    //       animate('2000ms', style({transform: 'translateY(-100%)', opacity: 0}))
-    //     ])
-    //   ]
-    // )
 })
 export class ToolbarComponent implements OnInit {
 
@@ -74,7 +61,6 @@ export class ToolbarComponent implements OnInit {
     public authService:AuthService, 
     private router:Router,
     public bucketService:BucketService,
-    public auth:Angular2TokenService,
     public prodService:ProdService) 
   {
     window.setTimeout(() => {
@@ -124,11 +110,8 @@ export class ToolbarComponent implements OnInit {
     
    const verticalOffset = window.pageYOffset ||document.documentElement.scrollTop || document.body.scrollTop || 0;
    if (verticalOffset > 250) {this.isHidden = true}else{this.isHidden = false}
-   // console.log(verticalOffset);
+   // $(".img_par").css({
+   //   "transform" : "translate(0%, "+verticalOffset/4+"%)"
+   // })
   } 
-
-  // animateMe() {
-  //   this.state = (this.state === 'enter' ? 'leave' : 'leave');
-  // }
-
 }

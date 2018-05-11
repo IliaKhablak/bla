@@ -9,8 +9,9 @@
              required
              name='email' 
              [(ngModel)]="signInUser.email" 
-             class="validate">
-      
+             class="validate"
+             #email='ngModel'>
+             
       <label for="email">Email</label>
     </div>
 
@@ -21,11 +22,12 @@
              required  
              name='password' 
              [(ngModel)]="signInUser.password" 
-             class="validate">
+             class="validate"
+             #password = 'ngModel'>
       
       <label for="password">Password</label>
     </div>
-
+   
     <div class="col s12 ">
       <button type="submit" 
               [disabled]="!(f.valid)" 
@@ -39,3 +41,5 @@
   </div>
 
 </form>
+<div *ngIf='!email.valid && !email.pristine' class="err-alert">Email is require!</div>
+<div *ngIf='!password.valid && !password.pristine' class="err-alert">Password is require!</div>

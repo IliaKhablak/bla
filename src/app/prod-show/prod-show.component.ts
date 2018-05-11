@@ -6,9 +6,9 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {MaterializeAction, MaterializeDirective} from "angular2-materialize";
 import * as $ from 'jquery';
 import {Comment} from '../comment';
-import {Angular2TokenService} from "angular2-token";
 import {BucketService} from '../services/bucket.service';
 import { Ng2PicaService } from 'ng2-pica';
+import {AuthService} from '../services/auth.service';
 
 
 @Component({
@@ -36,7 +36,7 @@ export class ProdShowComponent implements OnInit {
   	public prodService:ProdService, 
   	private route:ActivatedRoute,
   	private router:Router,
-    private authService:Angular2TokenService,
+    public auth:AuthService,
     public bucket:BucketService,
     private pic:Ng2PicaService
   ) { 
@@ -205,9 +205,9 @@ export class ProdShowComponent implements OnInit {
   }
 
   addComment(comment:Comment){
-    if (this.authService.userSignedIn()){
-      let user_id = this.authService.currentUserData.id;
-      let user_email = this.authService.currentUserData.email;
+    if (this.auth.userSignedIn$){
+      let user_id = this.auth.user.id;
+      let user_email = this.auth.user.email;
       this.prodService.addComment(this.prod.id, comment.text, user_id, user_email).subscribe(res=>this.comments=res.json());
     }else{
       this.prodService.addComment(this.prod.id, comment.text, null, null).subscribe(res=>this.comments=res.json());

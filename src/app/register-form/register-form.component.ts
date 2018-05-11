@@ -1,5 +1,7 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {AuthService} from "../services/auth.service";
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-register-form',
@@ -18,6 +20,8 @@ export class RegisterFormComponent implements OnInit {
 
   constructor(private authService:AuthService) { }
 
+  subm:boolean = false;
+  
   ngOnInit() {}
 
 

@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSignUpSubmit()" #f="ngForm" >
+<form (ngSubmit)="onSignUpSubmit();subm = true;" #f="ngForm" >
 
 
   <div class="row">
@@ -9,8 +9,9 @@
              required
              name='email'
              [(ngModel)]="signUpUser.email"
-             class="validate">
-      <label for="email">Email</label>
+             class="validate"
+             #email='ngModel'>
+     <label for="email" >Email</label>
     </div>
 
 
@@ -21,8 +22,9 @@
              required
              name='password'
              [(ngModel)]="signUpUser.password"
-             class="validate">
-      <label for="password">Password</label>
+             class="validate"
+             #password='ngModel'>
+      <label for="password" >Password</label>
     </div>
 
 
@@ -33,15 +35,10 @@
              required
              name='password_confirmation'
              [(ngModel)]="signUpUser.passwordConfirmation"
-             class="validate">
-      <label for="password_confirmation">Password confirmation</label>
+             class="validate"
+             #password_confirmation='ngModel'>
+      <label for="password_confirmation" >Password confirmation</label>
     </div>
-
-    <span *ngIf="signUpUser.password != signUpUser.passwordConfirmation"
-          style="color:red">
-      Passwords must match
-    </span>
-
 
     <div class="col s12">
 
@@ -57,3 +54,7 @@
 
 
 </form>
+
+<div *ngIf='!email.valid && !email.pristine' class="err-alert">Email is require!</div>
+<div *ngIf='!password.valid && !password.pristine' class="err-alert">Password is require!</div>
+<div *ngIf='signUpUser.password != signUpUser.passwordConfirmation && !password_confirmation.pristine && !subm' class="err-alert">Password has match!</div>

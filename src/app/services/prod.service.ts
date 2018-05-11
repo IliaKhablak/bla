@@ -22,6 +22,8 @@ export class ProdService {
   	nav:boolean = true;
 	shprod:Prod;
 
+
+
   constructor(private http:Http) {
   	this.headers = new Headers({'Content-Type':'application/json'});
 	this.options = new RequestOptions({headers:this.headers});

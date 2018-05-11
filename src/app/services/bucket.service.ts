@@ -1,7 +1,6 @@
 import { Injectable, EventEmitter} from '@angular/core';
 import {Observable} from "rxjs";
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
-import {Angular2TokenService} from "angular2-token";
 import {List} from '../list';
 import {MaterializeAction} from "angular2-materialize";
 import * as $ from 'jquery';
@@ -15,7 +14,7 @@ export class BucketService {
   buckets:List[];
   dropActions = new EventEmitter<string|MaterializeAction>();
 
-	constructor(private http:Http, private auth:Angular2TokenService) {
+	constructor(private http:Http) {
   	this.headers = new Headers({'Content-Type':'application/json'});
 	  this.options = new RequestOptions({headers:this.headers});
     let self = this;

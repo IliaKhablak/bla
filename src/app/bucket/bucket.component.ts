@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {BucketService} from '../services/bucket.service';
-import {Angular2TokenService} from "angular2-token";
 import {ProdService} from '../services/prod.service';
 import {List} from '../list';
 import {Router} from '@angular/router';
@@ -20,7 +19,6 @@ export class BucketComponent implements OnInit {
 
   constructor(
   	public bucketService:BucketService,
-  	private auth:Angular2TokenService,
   	private prodService:ProdService,
     private router:Router
   ) {

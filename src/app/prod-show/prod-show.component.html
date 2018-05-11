@@ -47,7 +47,7 @@
             <h2> Comment section</h2>
             <ul class="collection grey-text text-darken-2 ">
               <li class="collection-item blue-grey lighten-5" *ngFor="let comment of comments">
-                At {{comment.created_at | date: 'dd/MM/yyyy hh:mm'}} <b>{{comment.user_email}}</b> said: <br><b>{{comment.text}}</b><a (click)='deleteComment(comment)' class="right" *ngIf='authService.currentUserData?.id == comment.user_id && authService.userSignedIn()'>delete</a>
+                At {{comment.created_at | date: 'dd/MM/yyyy hh:mm'}} <b>{{comment.user_email}}</b> said: <br><b>{{comment.text}}</b><a (click)='deleteComment(comment)' class="right" *ngIf='auth.user?.id == comment.user_id && auth.userSignedIn$'>delete</a>
               </li>
             </ul>
           </div>
