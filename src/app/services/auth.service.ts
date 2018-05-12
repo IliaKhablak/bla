@@ -20,8 +20,6 @@ user = new User;
         res => {
           res.status == 200 ? this.userSignedIn$ = true : this.userSignedIn$ = false;
           this.user = res.json().data;
-          console.log(this.userSignedIn$);
-          console.log(this.user);
         }
     )
   }

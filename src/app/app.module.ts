@@ -24,6 +24,7 @@ import { BucketComponent } from './bucket/bucket.component';
 import {BucketService} from './services/bucket.service';
 import { Ng2PicaModule } from 'ng2-pica';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TestComponent } from './test/test.component';
 
 
   
@@ -40,7 +41,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProdListComponent,
     ProdShowComponent,
     ProdNewComponent,
-    BucketComponent
+    BucketComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

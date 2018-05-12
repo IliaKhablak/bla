@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProdService} from '../services/prod.service';
 
 
 @Component({
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {
+  constructor(private prod:ProdService) {
+  	document.getElementById('parallax').scrollTo(0,0);
+  	this.prod.btntoggle = false;
   	
   }
 

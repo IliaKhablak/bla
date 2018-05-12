@@ -1,49 +1,15 @@
-<!-- 
-<div class="row">
-  <div class="col m12 s12">
-    <div class="card z-depth-4" style="margin-top: 50px;">
-    	<h2 style="margin: 20px;"> Your bucket: </h2>
-      <div class="card-content" style="min-height: 400px;">
-        <div class="row ">
-          <div class="col l12 s12" style="overflow: auto;">
-            <h3 *ngIf="lists && lists.length < 1"> Is empty</h3>
-            <table *ngIf="lists && lists.length > 0">
-		        <thead>
-		          <tr>
-		          	  <th>Image</th>
-		              <th>Product title</th>
-		              <th>Amount</th>
-		          </tr>
-		        </thead>
-		        <tbody>
-		          <tr *ngFor="let list of bucketService.buckets">
-                	<td><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+list.prod.image.split(',')[0]" style="width: 200px; height: auto;" materialize="materialbox" class="materialboxed responsive-img"></td>
-		            <td class="valign-wrapper" style="overflow: hidden;width: 100px;"><b><a (click)="goToShow(list.prod.id)">{{list.prod.title}}</a>&nbsp;</b></td>
-		            <td style="font-size: 20px;"><a (click)="deleteFromBucket(list.prod.id)" *ngIf="list.number > 1"><</a>&nbsp;<b>{{list.number}}</b>&nbsp;<a (click)="addToBucket(list.prod.id)">></a></td>
-		            <td>
-		            	<a (click)="deleteFromBucket2(list.prod.id)" class="btn deep-orange darken-1 white-text waves-effect waves-teal"><i class="material-icons">delete</i></a>
-		            </td>
-		          </tr>
-		        </tbody>
-		      </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
- <div class="row" *ngIf="bucketService.buckets">
+ <div class="row" *ngIf="bucketService.buckets" style="margin-top: 90px;">
     <div class="col s12 m6 l3" *ngFor="let bucket of bucketService.buckets" style="margin-top: 30px;">
-	    <div class="card hoverable medium"  >
+	    <div class="card hoverable"  style="background:rgba(300,300,300,0.8);">
 	    	<div class="card-image" style="position: relative;">
 	    		<div class="amount blue white-text center z-depth-1" style="font-size: 20px;font-weight:bold">{{bucket.number}}</div>
           		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+bucket.prod.image.split(',')[0]" style="height: 240px;width: auto;margin-left: auto;margin-right: auto;">
           	</div>
-	    	<div class="card-content " style="overflow: hidden;">
+	    	<div class="card-content " style="position: relative;">
 	    		<span class="card-title truncate">{{bucket.prod.title}}</span>
 	    	</div>
-	    	 <div class="card-action">
+	    	 <div class="card-action" style="position: relative;background:rgba(300,300,300,0.8);">
 	    	 	<div class="row">
 	    	 		<div class="col s6 center">
 		    			<a (click)="deleteFromBucket(bucket.prod.id)" [class.disabled]="bucket.number < 2" class="btn waves-effect waves-teal deep-orange darken-1 white-text"><i class="material-icons">remove</i></a>
@@ -52,14 +18,13 @@
 		    			<a class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="goToShow(bucket.prod.id)"><i class="material-icons">search</i></a>
 		    		</div>
 		    	</div>
-		    	<div class="row">
+		    	<div class="row" >
 		    		<div class="col s6 center">
 		    			<a (click)="addToBucket(bucket.prod.id)" class="btn waves-effect waves-teal deep-orange darken-1 white-text"><i class="material-icons">add</i></a>
 		    		</div>
 		    		<div class="col s6 center">
 		    			<a (click)="deleteFromBucket2(bucket.prod.id)" class="btn deep-orange darken-1 white-text waves-effect waves-teal"><i class="material-icons">delete</i></a>
 		    		</div>
-		    		<!-- <a class="btn waves-effect waves-teal deep-orange darken-1 white-text right" (click)="addToBucket(prod.id);bucket.addclass($event);prodService.smdispbucket(prod);"><i class="material-icons">local_grocery_store</i></a> -->
 		    	</div>
 	    	</div>
     	</div>

@@ -39,6 +39,7 @@ export class ProdListComponent implements OnInit {
     private router:Router,
     public bucket:BucketService
   ) {
+    this.prodService.btntoggle = true;
     let self = this;
     this.prodService.getProds()
      .subscribe(prods => {
@@ -55,6 +56,15 @@ export class ProdListComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.getElementById('parallax').scrollTo(0,0);
+    window.setTimeout(() => {
+      let lastEl = document.getElementsByClassName('card-action')[document.getElementsByClassName('card-action').length - 1];
+      let posLast = lastEl.getBoundingClientRect();
+      // let c = "clip: rect(auto, auto, 1000px, auto);"
+      // document.getElementsByClassName('back_pic')[0].setAttribute('style',c);
+      console.log(posLast.bottom);
+    }, 4000);
+    
   }
 
   goToShow(prod:Prod):void {
@@ -80,11 +90,12 @@ export class ProdListComponent implements OnInit {
   }
 
   filterItem(value){
-     if(!value) this.assignCopy(); //when nothing has typed
-     this.filteredItems = Object.assign([], this.prodService.prods).filter(
+     if(!value) {this.filteredItems = null;}else{
+       this.filteredItems = Object.assign([], this.prodService.prods).filter(
        // item=>console.log(item.title)
         item => item.title.toLowerCase().indexOf(value.toLowerCase()) > -1
      )
+     } 
   }
 
 }

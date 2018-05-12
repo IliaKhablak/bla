@@ -7,6 +7,7 @@
     <div class="nav-wrapper blue">
      <!--  <a [routerLink]="['']" id="logo-container" class="brand-logo" style="margin-left: 10px;">Test App</a> -->
       <ul class="right hide-on-med-and-down">
+        <!-- <li> <a [routerLink]="['/']" >HOME</a></li> -->
          <li> <a [routerLink]="['/prods']" >CATALOG</a></li>
          <li > <a (click)="openNewProd()">ADD PPRODUCT</a></li>
          
@@ -27,7 +28,6 @@
              
           </ul>
          </li>
-
         <li *ngIf="!authService.userSignedIn$"> <a (click)="presentAuthDialog()" >LOGIN</a></li>
         <li *ngIf="!authService.userSignedIn$"> <a (click)="presentAuthDialog('register')">REGISTER</a></li>
 
@@ -40,13 +40,14 @@
   </nav>
    <div class="blue" *ngIf='!isHidden' [@enterAnimation] style="position: fixed;top:55px;height: 100px;width: 100%;z-index: -1">
     </div>
-    <img src="./assets/images/s9 ilia.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:20px;top:5px;height: 170px;" class="step" [class.show]='show'>
-    <img src='./assets/images/ilia iphone.png' *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:170px;top:10px;height: 140px;" class="step hide-on-small-only" [class.show]='show2'>
-    <img src="./assets/images/com name.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:300px;top:5px;height: 150px;" class="step hide-on-small-only" [class.show]='show3'>
-    <img src="./assets/images/com name.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:170px;top:20px;height: 120px;" class="step hide-on-med-and-up" [class.show]='show3'>
+    <a [routerLink]="['/']" ><img src="./assets/images/s9 ilia.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:20px;top:5px;height: 170px;" class="step" [class.show]='show'></a>
+    <a [routerLink]="['/']" ><img src='./assets/images/ilia iphone.png' *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:170px;top:10px;height: 140px;" class="step hide-on-small-only" [class.show]='show2'></a>
+    <a [routerLink]="['/']" ><img src="./assets/images/com name.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:300px;top:5px;height: 150px;" class="step hide-on-small-only" [class.show]='show3'></a>
+    <a [routerLink]="['/']" ><img src="./assets/images/com name.png" *ngIf='!isHidden' [@enterAnimation] style="z-index: 20;position: fixed;left:170px;top:20px;height: 120px;" class="step hide-on-med-and-up" [class.show]='show3'></a>
 </div>
 <ul id="slide-out" class="side-nav" style="z-index: 1000;">
-         <li routerLinkActive="active"> <a [routerLink]="['/prods']" >PRODUCTS</a></li>
+         <!-- <li> <a [routerLink]="['/']" >HOME</a></li> -->
+         <li routerLinkActive="active"> <a [routerLink]="['/prods']" >CATALOG</a></li>
          <li routerLinkActive="active"> <a [routerLink]="['/bucket']" >BUCKET&nbsp;<span class="new badge red" data-badge-caption="products" *ngIf="bucketService.amount">{{bucketService.amount}}</span></a></li>
         <li *ngIf="!authService.userSignedIn$"> <a (click)="presentAuthDialog()" >LOGIN</a></li>
         <li *ngIf="!authService.userSignedIn$"> <a (click)="presentAuthDialog('register')">REGISTER</a></li>
@@ -88,15 +89,21 @@
     <!-- <div class="img_par">
       <img src="./assets/images/M7pcpWqxJ69FydiIbrCF" class="responsive-img">
     <div> -->
-    <div class="parallax-container par1">
+      <div class="fixed-action-btn" *ngIf='prodService.btntoggle'>
+     <a (click)="prodService.openModal()" class="btn-floating btn-large waves-effect waves-light blue darken-1 hide-on-large-only flbtn"><i class="material-icons">add</i></a>
+   </div>
+
+
+      
+    <!-- <div class="parallax-container par1">
       <div class="parallax" materialize="parallax"><img src="./assets/images/city2.jpg"></div>
-    </div>
-    <div class="parallax-container par2" *ngIf='parHide'>
+    </div> -->
+    <!-- <div class="parallax-container par2" *ngIf='parHide'>
       <div class="parallax" materialize="parallax"><img src="./assets/images/city2.jpg"></div>
     </div>
     <div class="parallax-container par3" *ngIf='parHide2'>
       <div class="parallax" materialize="parallax"><img src="./assets/images/city2.jpg"></div>
-    </div>
+    </div> -->
     <!-- <div class="parallax-container">
       <div class="parallax" materialize="parallax" style="margin-top: 4000px;"><img src="./assets/images/city2.jpg"></div>
     </div>
@@ -105,4 +112,4 @@
     </div> -->
 <app-auth-dialog #authDialog ></app-auth-dialog>
 <app-prod-new #prodNew></app-prod-new>
-
+<app-test *ngIf="prod"></app-test>

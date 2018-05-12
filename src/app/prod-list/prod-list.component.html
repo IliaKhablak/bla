@@ -1,16 +1,17 @@
 
-
-<div *ngIf='prodService.cats.length > 0' class="row hide-on-med-and-down"><div class="col l8 offset-l2 center"><a *ngFor='let cat of prodService.cats' style="margin: 10px;" class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a><a  style="margin: 10px;" class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></div></div>
+<div style="margin-top: 110px;">
+<div *ngIf='prodService.cats.length > 0' class="row hide-on-med-and-down">
+	<div class="col l8 offset-l2 center"><a *ngFor='let cat of prodService.cats' style="margin: 10px;" class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catShow(cat)">{{cat}}</a><a  style="margin: 10px;" class="btn waves-effect waves-teal deep-orange darken-1 white-text" (click)="prodService.catItems = null">ALL</a></div></div>
  
 <div class="row" style="margin-top: 30px;">
-    <div class="input-field col s12 m6 l4 offset-m3 offset-l4">
+    <div class="input-field col s12 m6 l4 offset-m3 offset-l4" style="background-color: white;opacity: 0.9;border-radius: 5px;">
       <input #myInput id="search" type="text" (input)="filterItem(myInput.value)">
       <label for="search">Search here!</label>
     </div>
 </div>
  <div class="row" *ngIf="!filteredItems && !prodService.catItems">
     <div class="col s12 m6 l3 elem" *ngFor="let prod of prodService.prods" style="margin-top: 30px;">
-	    <div class="card hoverable medium"  >
+	    <div class="card hoverable medium"  style="background:rgba(300,300,300,0.8);">
 	    	<div class="card-image">
           		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]" style="height: 240px;width: auto;margin-left: auto;margin-right: auto;">
           	</div>
@@ -26,9 +27,9 @@
 </div>
 <div class="row" *ngIf="filteredItems">
     <div class="col s12 m6 l3" *ngFor="let prod of filteredItems" style="margin-top: 30px;">
-	    <div class="card hoverable medium"  >
+	    <div class="card hoverable medium"  style="background:rgba(300,300,300,0.8);">
 	    	<div class="card-image">
-          		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]" class="responsive-img">
+          		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]" style="height: 240px;width: auto;margin-left: auto;margin-right: auto;">
           	</div>
 	    	<div class="card-content " style="overflow: hidden;">
 	    		<span class="card-title truncate">{{prod.title}}</span>
@@ -42,9 +43,9 @@
 </div>
 <div class="row" *ngIf="prodService.catItems">
     <div class="col s12 m6 l3" *ngFor="let prod of prodService.catItems" style="margin-top: 30px;">
-	    <div class="card hoverable medium"  >
+	    <div class="card hoverable medium"  style="background:rgba(300,300,300,0.8);">
 	    	<div class="card-image">
-          		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]" class="responsive-img">
+          		<img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+prod.image.split(',')[0]" style="height: 240px;width: auto;margin-left: auto;margin-right: auto;">
           	</div>
 	    	<div class="card-content " style="overflow: hidden;">
 	    		<span class="card-title truncate">{{prod.title}}</span>
@@ -56,8 +57,6 @@
     	</div>
   	</div>
 </div>
-<div class="fixed-action-btn hide-on-large-only">
-<a (click)="prodService.openModal()" class="btn-floating btn-large waves-effect waves-teal blue darken-1"><i class="material-icons">add</i></a>
 </div>
 
-
+ 

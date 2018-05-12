@@ -1,24 +1,24 @@
-<div class="row">
+<div class="row" style="margin-top: 130px;">
   <div class="col m12 s12">
-    <div class="card z-depth-4" style="margin-top: 50px;">
+    <div class="card z-depth-4" style="margin-top: 50px;background:rgba(300,300,300,0.8);">
       <div class="card-content" style="min-height: 400px;">
         <div class="row ">
           <div class="col l4 s12 center" style="margin-bottom: 1em">
               <div *ngFor='let image of images' class="hide-on-large-only row" style="padding: 0px;margin: 0px;">
-                  <div *ngFor="let img of image" [class]="'col s'+ flooring(image.length)"> <img   materialize="materialbox" class="materialboxed responsive-img" [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+img" style="width: 200px;height: auto;"></div>
+                  <div *ngFor="let img of image" [class]="'col s'+ flooring(image.length)"> <img   materialize="materialbox" class="materialboxed responsive-img" [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+img" style="width: 200px;height: auto;margin-left:auto;margin-right: auto;" (click)="simpCheck($event)"></div>
                   </div>
-              <div #carousel class="carousel carousel-slider hide-on-med-and-down"  materialize="carousel" [materializeActions]="actions" [materializeParams]="[{full_width: true}]">
+              <div #carousel class="carousel carousel-slider hide-on-med-and-down"  materialize="carousel" [materializeActions]="actions" [materializeParams]="[{full_width: true, indicators: true}]">
                 <ng-container *ngFor="let image of images">
-                  <a *ngFor="let img of image" class="carousel-item"><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+img" class="responsive-img" style="background-color: white;"></a>
+                  <a *ngFor="let img of image" class="carousel-item"><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+img" class="responsive-img" style="background-color: rgba(300,300,300,0.0);"></a>
                 </ng-container>
               </div>
 
             
           </div>
           <div class="col l8 s12" style="overflow: auto;">
-            <ul class="collection grey-text text-darken-2 prod-cont">
-              <li class="collection-item blue-grey lighten-5">Title: <br> <b class="prod-cont">{{prod.title}}</b></li>
-              <li class="collection-item blue-grey lighten-5">Description:  <b><pre class="prod-cont">{{prod.description}}</pre></b></li>
+            <ul class="collection  prod-cont">
+              <li class="collection-item ">Title: <br> <b class="prod-cont">{{prod.title}}</b></li>
+              <li class="collection-item ">Description:  <b><pre class="prod-cont">{{prod.description}}</pre></b></li>
             </ul>
           </div>
         </div>
@@ -27,7 +27,7 @@
         <a  (click)='deleteProd(prod.id)'
                 class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;"><i class="material-icons">delete</i>
         </a>
-        <a (click)='openModal()'
+        <a (click)='prodService.openModal2()'
                 class="btn deep-orange darken-1 white-text waves-effect waves-teal" style="margin: 10px;"><i class="material-icons">edit</i>
         </a>
         <a (click)='addToBucket(prod.id)'
@@ -38,15 +38,16 @@
   </div>
 </div>
 
+
 <div class="row">
   <div class="col m12 s12">
-    <div class="card z-depth-4">
+    <div class="card z-depth-4" style="background:rgba(300,300,300,0.8);">
       <div class="card-content">
         <div class="row ">
           <div class="col l12 s12" style="overflow: auto;" >
             <h2> Comment section</h2>
-            <ul class="collection grey-text text-darken-2 ">
-              <li class="collection-item blue-grey lighten-5" *ngFor="let comment of comments">
+            <ul class="collection ">
+              <li class="collection-item " *ngFor="let comment of comments">
                 At {{comment.created_at | date: 'dd/MM/yyyy hh:mm'}} <b>{{comment.user_email}}</b> said: <br><b>{{comment.text}}</b><a (click)='deleteComment(comment)' class="right" *ngIf='auth.user?.id == comment.user_id && auth.userSignedIn$'>delete</a>
               </li>
             </ul>
@@ -71,59 +72,4 @@
   </div>
 </div>
 
- <div class="modal" materialize="modal" [materializeActions]="modalActions" ngDraggable>
-    <div class="modal-content">
-    <div class="row">
-      <p style="margin-right: -10px;margin-top: -10px;" class="right sucess-alert">I'm draggable</p>
-      <h3 class="grey-text text-darken-2 center">Change product</h3>
-      <form (ngSubmit)="update(prod); prodForm.reset(); closeModal()" #prodForm='ngForm' class="col l12 s12">
-        <div class="row">
-          <div class="input-field col s6">
-             <h5 class="grey-text text-darken-2">Title</h5>
-            <input type="text" name="title"
-            id="title" #title='ngModel' class="validate"
-            [(ngModel)]='prod.title' required>
-          </div>
-          <div class="input-field col s6">
-             <h5 class="grey-text text-darken-2">Category</h5>
-            <input type="text" name="category"
-            id="category" #category='ngModel' class="validate"
-            [(ngModel)]='prod.category' required>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s6">
-            <h5 class="grey-text text-darken-2">Description</h5>
-            <textarea class="materialize-textarea validate" id="description"
-              name="description" #description='ngModel' 
-              [(ngModel)]='prod.description' rows="2" required>
-            </textarea>
-          </div>
-          <div class="file-field input-field col s6">
-              <div class="btn">
-                <span>File</span>
-              <input type="file" (change)="getFile($event)" multiple>
-            </div>
-            <div class="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="Image require">
-            </div>
-            <div *ngIf='err' class="err-alert">{{err}}</div>
-            <div *ngIf='sucess' class="sucess-alert">Well done!</div>
-            <div class="progress" *ngIf="img_upload && !err && !sucess" id="puscontainer">
-              <div class='determinate' id='pus' style='width: 0%'></div>
-            </div>
-          </div>
-     
-        <div *ngIf="prod.image" class="col s6">
-         <ng-container *ngFor="let image of images">
-          <a *ngFor="let img of image" (click)="delImg(img)"  style="margin:5px;"><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+img" class="hoverable img"></a>
-        </ng-container>
-        </div>
-      </div>
-        <div>
-          <button type="submit" class="waves-effect waves-teal btn" [disabled]="!prodForm.form.valid">Aply changes</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div> 
+ 

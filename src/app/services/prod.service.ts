@@ -1,16 +1,18 @@
-import { Injectable, EventEmitter} from '@angular/core';
+import { Injectable, EventEmitter, ViewChild} from '@angular/core';
 import {Observable} from "rxjs";
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Prod} from '../prod';
 import {Env} from '../env';
 import {MaterializeAction} from "angular2-materialize";
-
+import {ProdShowComponent} from '../prod-show/prod-show.component';
+import {Subject} from "rxjs/Subject"
 
 
 @Injectable()
 export class ProdService {
 	modalActions = new EventEmitter<string|MaterializeAction>();
+	modalActions2 = new EventEmitter<string|MaterializeAction>();
 	headers: Headers;
 	options: RequestOptions;
 	private prodsUrl = 'https://infinite-reaches-26736.herokuapp.com/prods';
@@ -21,7 +23,13 @@ export class ProdService {
   	prods:Prod[] = [];
   	nav:boolean = true;
 	shprod:Prod;
-
+	btntoggle:boolean;
+	private eventCallback = new Subject<string>();
+	private eventCallback2 = new Subject<Prod>();
+	eventCallback$ = this.eventCallback.asObservable(); // Stream
+	prod:Prod;
+	eventCallback2$ = this.eventCallback2.asObservable();
+// 'https://infinite-reaches-26736.herokuapp.com/prods'
 
 
   constructor(private http:Http) {
@@ -74,8 +82,16 @@ export class ProdService {
 	    this.modalActions.emit({action:"modal",params:['open']});
 	}
 
+	openModal2() {
+	    this.modalActions2.emit({action:"modal",params:['open']});
+	}
+
 	closeModal() {
 	    this.modalActions.emit({action:"modal",params:['close']});
+	}
+
+	closeModal2() {
+	    this.modalActions2.emit({action:"modal",params:['close']});
 	}
 
 	catShow(value){
@@ -99,4 +115,12 @@ export class ProdService {
 	    }
 	    return false;
 	  }
+
+	sendData(data:any){
+		this.eventCallback.next(data);
+	}
+
+	sendProd(prod:Prod){
+		this.eventCallback2.next(prod);
+	}
 }

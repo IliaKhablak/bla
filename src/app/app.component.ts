@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
+import {ProdService} from './services/prod.service';
 
 
 @Component({
@@ -9,10 +10,12 @@ import { Angular2TokenService } from 'angular2-token';
 })
 export class AppComponent {
 
-	constructor(private tokenService:Angular2TokenService){
+	constructor(private tokenService:Angular2TokenService, public prodService:ProdService){
 		this.tokenService.init ({
 		    apiBase: 'https://infinite-reaches-26736.herokuapp.com/'
 		});
 	}
+
+	
 }
 

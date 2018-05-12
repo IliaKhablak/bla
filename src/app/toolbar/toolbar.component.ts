@@ -7,8 +7,7 @@ import {BucketService} from '../services/bucket.service';
 import {MaterializeDirective} from "angular2-materialize";
 import {ProdService} from '../services/prod.service';
 import * as $ from 'jquery';
-
-
+import {Prod} from '../prod';
 
 
 
@@ -57,6 +56,7 @@ export class ToolbarComponent implements OnInit {
   adv2:boolean = false;
   parHide:boolean = false;
   parHide2:boolean = false;
+  prod = new Prod;
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -84,8 +84,23 @@ export class ToolbarComponent implements OnInit {
       this.adv = false;
       this.adv2 = false;
     }, 4000);
-
-    
+    window.setTimeout(() => {
+      let self = this;
+      let scrollPos = 0;
+      let Counter = 0;
+      $('.parallax').scroll(function(){
+        let scrollPosCur = $(this).scrollTop();
+        if (scrollPosCur > scrollPos) {
+            Counter -= 1;
+        } else {
+            Counter += 1;
+        }
+        scrollPos = scrollPosCur;
+        if (scrollPos > 250) {self.isHidden = true}else{self.isHidden = false}
+        // const verticalOffset = window.pageYOffset ||document.documentElement.scrollTop || document.body.scrollTop || 0;
+      })
+    }, 3000);
+    this.prodService.eventCallback2$.subscribe(res=>this.prod = res);
   }
 
   ngOnInit(){
@@ -108,23 +123,4 @@ export class ToolbarComponent implements OnInit {
     return this.params;
   }
 
-  @HostListener('window:scroll', ['$event']) 
-
-  onScrollEvent($event){
-    
-   const verticalOffset = window.pageYOffset ||document.documentElement.scrollTop || document.body.scrollTop || 0;
-   if (verticalOffset > 250) {this.isHidden = true}else{this.isHidden = false}
-   // $(".img_par").css({
-   //   "transform" : "translate(0%, "+verticalOffset/4+"%)"
-   // })
-   // if (verticalOffset > 2000)
-   //   {this.parHide2 = true}else{ this.parHide2 = false}
-   // {$('.par1').after("<div class='parallax-container' style='position: absolute;width: 100%;height: 2000px;margin-top: 1980px;'><div class='parallax' materialize='parallax'><img src='./assets/images/city2.jpg'></div></div>");}else{}
-  } 
-
-  @HostListener('window:change', ['$event']) 
-  onChangeEvent($event){
-    if ($('.elem').last().offset().top > 1800)
-     {this.parHide = true}else{ this.parHide = false}
-  }
 }

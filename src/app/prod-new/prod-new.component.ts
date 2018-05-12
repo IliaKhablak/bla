@@ -59,7 +59,6 @@ export class ProdNewComponent {
           }, 2000);
 					this.prodService.closeModal();
           this.img_upload = false;
-          $('img').remove();
           $('.file-path').val('');
           $('#needreset').val('');
 				},
