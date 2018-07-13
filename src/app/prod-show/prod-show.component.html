@@ -1,3 +1,18 @@
+<ng-container>
+  <div id="overlay" class="blue-grey lighten-5" *ngIf="!bla" [@enterAnimation]></div>
+  <div class="preloader-wrapper active" *ngIf="!bla">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="bla">
 <div class="row" style="margin-top: 130px;">
   <div class="col m12 s12">
     <div class="card z-depth-4" style="margin-top: 50px;background:rgba(300,300,300,0.8);">
@@ -5,14 +20,13 @@
         <div class="row ">
           <div class="col l4 s12 center" style="margin-bottom: 1em">
               <div *ngFor='let image of images' class="hide-on-large-only row" style="padding: 0px;margin: 0px;">
-                  <div *ngFor="let img of image" [class]="'col s'+ flooring(image.length)"> <img   materialize="materialbox" class="materialboxed responsive-img" [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+img" style="width: 200px;height: auto;margin-left:auto;margin-right: auto;" (click)="simpCheck($event)"></div>
+                  <div *ngFor="let img of image" [class]="'col s'+ flooring(image.length)"> <img   materialize="materialbox" class="materialboxed responsive-img" [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+img" style="width: 200px;height: auto;margin-left:auto;margin-right: auto;" ></div>
                   </div>
               <div #carousel class="carousel carousel-slider hide-on-med-and-down"  materialize="carousel" [materializeActions]="actions" [materializeParams]="[{full_width: true, indicators: true}]">
                 <ng-container *ngFor="let image of images">
-                  <a *ngFor="let img of image" class="carousel-item"><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+img" class="responsive-img" style="background-color: rgba(300,300,300,0.0);"></a>
+                  <a *ngFor="let img of image" class="carousel-item"><img [src]="'https://s3-ap-southeast-1.amazonaws.com/justforfunbucket2018/'+img" class="responsive-img" style="background-color: rgba(300,300,300,1.0);"></a>
                 </ng-container>
               </div>
-
             
           </div>
           <div class="col l8 s12" style="overflow: auto;">
@@ -71,5 +85,4 @@
     </div>
   </div>
 </div>
-
- 
+</ng-container>

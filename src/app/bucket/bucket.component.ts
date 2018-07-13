@@ -23,10 +23,10 @@ export class BucketComponent implements OnInit {
     private router:Router
   ) {
     this.prodService.btntoggle = false;
-    document.getElementById('parallax').scrollTo(0,0);
-  		this.bucketService.getBucket().subscribe(res=>{
-  			this.lists = res.json();
-  		});
+    // document.getElementById('parallax').scrollTo(0,0);
+  		// this.bucketService.getBucket().subscribe(res=>{
+  		// 	this.lists = res.json();
+  		// });
   }
 
   ngOnInit() {}

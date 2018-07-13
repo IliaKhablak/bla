@@ -41,29 +41,17 @@ export class ProdListComponent implements OnInit {
   ) {
     this.prodService.btntoggle = true;
     let self = this;
-    this.prodService.getProds()
-     .subscribe(prods => {
-       this.prodService.prods = prods;
-       let z = 0;
-       self.prodService.cats = []
-       prods.forEach(function (el) {
-             if (self.prodService.abc(el.category, self.prodService.cats)){
-             }else{
-               self.prodService.cats[z] = (el.category);z+=1;
-             }
-           })
-     });
   }
 
   ngOnInit() {
-    document.getElementById('parallax').scrollTo(0,0);
-    window.setTimeout(() => {
-      let lastEl = document.getElementsByClassName('card-action')[document.getElementsByClassName('card-action').length - 1];
-      let posLast = lastEl.getBoundingClientRect();
-      // let c = "clip: rect(auto, auto, 1000px, auto);"
-      // document.getElementsByClassName('back_pic')[0].setAttribute('style',c);
-      console.log(posLast.bottom);
-    }, 4000);
+    // document.getElementById('parallax').scrollTo(0,0);
+    // window.setTimeout(() => {
+    //   let lastEl = document.getElementsByClassName('card-action')[document.getElementsByClassName('card-action').length - 1];
+    //   let posLast = lastEl.getBoundingClientRect();
+    //   // let c = "clip: rect(auto, auto, 1000px, auto);"
+    //   // document.getElementsByClassName('back_pic')[0].setAttribute('style',c);
+    //   console.log(posLast.bottom);
+    // }, 4000);
     
   }
 

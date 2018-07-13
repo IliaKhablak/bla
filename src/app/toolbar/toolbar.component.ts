@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, HostListener, Inject, trigger, state, animate, transition, style} from '@angular/core';
+import {Component, OnInit, ViewChild, HostListener, Inject} from '@angular/core';
 import { DOCUMENT } from "@angular/platform-browser";
 import {AuthDialogComponent} from "../auth-dialog/auth-dialog.component";
 import {AuthService} from "../services/auth.service";
@@ -6,6 +6,9 @@ import {Router} from "@angular/router";
 import {BucketService} from '../services/bucket.service';
 import {MaterializeDirective} from "angular2-materialize";
 import {ProdService} from '../services/prod.service';
+
+import {trigger, animate, transition, style} from '@angular/animations';
+
 import * as $ from 'jquery';
 import {Prod} from '../prod';
 
@@ -84,11 +87,16 @@ export class ToolbarComponent implements OnInit {
       this.adv = false;
       this.adv2 = false;
     }, 4000);
-    window.setTimeout(() => {
+    
+      
+    this.prodService.eventCallback2$.subscribe(res=>this.prod = res);
+  }
+
+  ngOnInit(){
       let self = this;
       let scrollPos = 0;
       let Counter = 0;
-      $('.parallax').scroll(function(){
+      $(document).scroll(function(){
         let scrollPosCur = $(this).scrollTop();
         if (scrollPosCur > scrollPos) {
             Counter -= 1;
@@ -96,14 +104,21 @@ export class ToolbarComponent implements OnInit {
             Counter += 1;
         }
         scrollPos = scrollPosCur;
-        if (scrollPos > 250) {self.isHidden = true}else{self.isHidden = false}
+        if (scrollPos > 100) {self.isHidden = true}else{self.isHidden = false}
         // const verticalOffset = window.pageYOffset ||document.documentElement.scrollTop || document.body.scrollTop || 0;
       })
-    }, 3000);
-    this.prodService.eventCallback2$.subscribe(res=>this.prod = res);
-  }
-
-  ngOnInit(){
+    this.prodService.getProds()
+     .subscribe(prods => {
+       this.prodService.prods = prods;
+       let z = 0;
+       self.prodService.cats = []
+       prods.forEach(function (el) {
+             if (self.prodService.abc(el.category, self.prodService.cats)){
+             }else{
+               self.prodService.cats[z] = (el.category);z+=1;
+             }
+           })
+     });
   }
 
   logOut(){

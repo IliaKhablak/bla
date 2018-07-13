@@ -9,18 +9,33 @@ import {Comment} from '../comment';
 import {BucketService} from '../services/bucket.service';
 import { Ng2PicaService } from 'ng2-pica';
 import {AuthService} from '../services/auth.service';
+import {trigger, animate, transition, style} from '@angular/animations';
 
 
 @Component({
   selector: 'app-prod-show',
   templateUrl: './prod-show.component.html',
-  styleUrls: ['./prod-show.component.sass']
+  styleUrls: ['./prod-show.component.sass'],
+  animations: [
+     trigger(
+      'enterAnimation', [
+        transition('void => *', [
+          style({opacity: 1}),
+          animate('600ms', style({opacity: 1}))
+        ]),
+        transition('* => void', [
+          style({opacity: 1}),
+          animate('600ms', style({opacity: 0}))
+        ])
+      ]
+     )]
 })
 export class ProdShowComponent implements OnInit {
   @ViewChild('carousel') carouselElement; 
   actions = new EventEmitter<string>();
 	id: number;
   AWS = require('aws-sdk');
+  bla:boolean = false;
   
   comments:Comment[];
   prod = new Prod;
@@ -55,6 +70,7 @@ export class ProdShowComponent implements OnInit {
     });
     this.prodService.eventCallback2$.subscribe(res=>{
       this.prod=res;
+      this.bla = true;
       let a = 0;
         let b = 0;
         this.images = [[]];
@@ -69,21 +85,22 @@ export class ProdShowComponent implements OnInit {
   }
 
   ngOnInit() {
-    document.getElementById('parallax').scrollTo(0,0);
-    window.setTimeout(() => {
-      let i = document.getElementsByClassName('indicator-item');
-      for(let a = 0; a < i.length; a+=1){
-        i[a].className += ' blue';
-      }
-    }, 2000);
+    window.scrollTo(0,0);
+    // document.getElementById('parallax').scrollTo(0,0);
+    // window.setTimeout(() => {
+    //   let i = document.getElementsByClassName('indicator-item');
+    //   for(let a = 0; a < i.length; a+=1){
+    //     i[a].className += ' blue';
+    //   }
+    // }, 2000);
     
   }
 
- @HostListener('click', ['$event'])
- onClick(){
-   $(".carousel-item").children().css('opacity','0');
-   $('a.active').children().css('opacity','1');
- }
+ // @HostListener('click', ['$event'])
+ // onClick(){
+ //   $(".carousel-item").children().css('opacity','0');
+ //   $('a.active').children().css('opacity','1');
+ // }
 
   deleteProd(id:number){
     if(window.confirm('Are sure you want to delete this item ?')){
@@ -154,8 +171,8 @@ export class ProdShowComponent implements OnInit {
   // @HostListener('click') onClick() {
   //   if (document.getElementsByClassName("materialboxed").classList.contains('active')){this.prodService.nav = !this.prodService.nav}else{}
   // }
-  simpCheck(event){
-    if(event.target.classList.contains('active')){this.prodService.nav = true}else{this.prodService.nav = false}
-  }
+  // simpCheck(event){
+  //   if(event.target.classList.contains('active')){this.prodService.nav = true}else{this.prodService.nav = false}
+  // }
 
 }

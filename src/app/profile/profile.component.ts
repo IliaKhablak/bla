@@ -14,9 +14,9 @@ export class ProfileComponent implements OnInit {
               private router:Router,
               private prod: ProdService
   ) {
-    document.getElementById('parallax').scrollTo(0,0);
-    this.prod.btntoggle = false;
-    window.scrollTo(0, 0);
+    // document.getElementById('parallax').scrollTo(0,0);
+    // this.prod.btntoggle = false;
+    // window.scrollTo(0, 0);
   }
 
   logOut(){
