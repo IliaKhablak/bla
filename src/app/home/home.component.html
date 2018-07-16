@@ -11,6 +11,30 @@
 	  </div>
 	</div>
 </div>
+<div class="hide-on-small-only">
+  <div class="bla left " (mouseout)="mouseOvered=false" (mouseover)="mouseOvered=true">
+    <div class="bla-inside valign-wrapper" [class.changed]="mouseOvered" [class.changed2]="mouseOvered3" (mouseout)="mouseOvered3=false;pchanged=false" (mouseover)="mouseOvered3=true;pchanged=true" ><p [class.pchanged]="mouseOvered && !pchanged">INTERESTING</p></div>
+  </div>
+  <div class="bla right" (mouseout)="mouseOvered2=false" (mouseover)="mouseOvered2=true">
+    <div class="bla-inside valign-wrapper" [class.changed]="mouseOvered2" [class.changed2]="mouseOvered4" (mouseout)="mouseOvered4=false;pchanged2=false" (mouseover)="mouseOvered4=true;pchanged2=true"><p [class.pchanged]="mouseOvered2 && !pchanged2">RESPONSIVE</p></div>
+  </div>
+  <div class="divp">
+    <p class="des" [class.desChanged]="mouseOvered">DES</p>
+    <p class="des" [class.desChanged]="mouseOvered2">IGN</p>
+  </div>
+</div>
+<div class="hide-on-med-and-up">
+  <div class="bla2" (mouseout)="mouseOvered=false" (mouseover)="mouseOvered=true">
+    <div class="bla-inside valign-wrapper" [class.changed]="mouseOvered" [class.changed2]="mouseOvered3" (mouseout)="mouseOvered3=false;pchanged=false" (mouseover)="mouseOvered3=true;pchanged=true" ><p [class.pchanged]="mouseOvered && !pchanged">INTERESTING</p></div>
+  </div>
+  <div class="bla2" (mouseout)="mouseOvered2=false" (mouseover)="mouseOvered2=true">
+    <div class="bla-inside valign-wrapper" [class.changed]="mouseOvered2" [class.changed2]="mouseOvered4" (mouseout)="mouseOvered4=false;pchanged2=false" (mouseover)="mouseOvered4=true;pchanged2=true"><p [class.pchanged]="mouseOvered2 && !pchanged2">RESPONSIVE</p></div>
+  </div>
+  <div class="divp">
+    <p class="des" [class.desChanged]="mouseOvered">DES</p>
+    <p class="des" [class.desChanged]="mouseOvered2">IGN</p>
+  </div>
+</div>
 <a [routerLink]="['/prods']">Bla</a>
 <ul id="categories" class="clr">
   <!-- <li class="pusher"></li> -->

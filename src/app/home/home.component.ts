@@ -32,4 +32,12 @@ export class HomeComponent implements OnInit {
     this.prod.nav = true;
   }
 
+  bla(val){
+    document.getElementById(val).classList.add("changed");
+  }
+
+  bla2(val){
+    document.getElementById(val).classList.remove("changed");
+  }
+
 }
