@@ -44,6 +44,7 @@ export class ProdListComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0,0);
     // document.getElementById('parallax').scrollTo(0,0);
     // window.setTimeout(() => {
     //   let lastEl = document.getElementsByClassName('card-action')[document.getElementsByClassName('card-action').length - 1];

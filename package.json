@@ -36,6 +36,7 @@
     "materialize-css": "^0.100.2",
     "ng2-image-hover-zoom": "^1.0.2",
     "ng2-pica": "^1.2.8",
+    "ngx-parallax": "^4.0.0",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },

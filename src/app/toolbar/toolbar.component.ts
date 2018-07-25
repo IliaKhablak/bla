@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild, HostListener, Inject} from '@angular/core';
+import {Component, OnInit, ViewChild, Inject} from '@angular/core';
 import { DOCUMENT } from "@angular/platform-browser";
 import {AuthDialogComponent} from "../auth-dialog/auth-dialog.component";
 import {AuthService} from "../services/auth.service";

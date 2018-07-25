@@ -1,4 +1,4 @@
-<div class="container z-depth-4" style="margin-top: 200px;background-color: white; opacity: 0.9;padding: 20px;border-radius: 5px;">
+<!-- <div class="container z-depth-4" style="margin-top: 200px;background-color: white; opacity: 0.9;padding: 20px;border-radius: 5px;">
 	<div class="row">
 	  <div class="col s12">
 	    <h1> Welcome</h1>
@@ -10,95 +10,138 @@
 	    </p>
 	  </div>
 	</div>
-</div>
-<div class="hide-on-small-only">
-  <div class="bla left " (mouseout)="mouseOvered=false" (mouseover)="mouseOvered=true">
-    <div class="bla-inside valign-wrapper" [class.changed]="mouseOvered" [class.changed2]="mouseOvered3" (mouseout)="mouseOvered3=false;pchanged=false" (mouseover)="mouseOvered3=true;pchanged=true" ><p [class.pchanged]="mouseOvered && !pchanged">INTERESTING</p></div>
-  </div>
-  <div class="bla right" (mouseout)="mouseOvered2=false" (mouseover)="mouseOvered2=true">
-    <div class="bla-inside valign-wrapper" [class.changed]="mouseOvered2" [class.changed2]="mouseOvered4" (mouseout)="mouseOvered4=false;pchanged2=false" (mouseover)="mouseOvered4=true;pchanged2=true"><p [class.pchanged]="mouseOvered2 && !pchanged2">RESPONSIVE</p></div>
-  </div>
-  <div class="divp">
-    <p class="des" [class.desChanged]="mouseOvered">DES</p>
-    <p class="des" [class.desChanged]="mouseOvered2">IGN</p>
-  </div>
-</div>
-<div class="hide-on-med-and-up">
-  <div class="bla2" (mouseout)="mouseOvered=false" (mouseover)="mouseOvered=true">
-    <div class="bla-inside valign-wrapper" [class.changed]="mouseOvered" [class.changed2]="mouseOvered3" (mouseout)="mouseOvered3=false;pchanged=false" (mouseover)="mouseOvered3=true;pchanged=true" ><p [class.pchanged]="mouseOvered && !pchanged">INTERESTING</p></div>
-  </div>
-  <div class="bla2" (mouseout)="mouseOvered2=false" (mouseover)="mouseOvered2=true">
-    <div class="bla-inside valign-wrapper" [class.changed]="mouseOvered2" [class.changed2]="mouseOvered4" (mouseout)="mouseOvered4=false;pchanged2=false" (mouseover)="mouseOvered4=true;pchanged2=true"><p [class.pchanged]="mouseOvered2 && !pchanged2">RESPONSIVE</p></div>
-  </div>
-  <div class="divp">
-    <p class="des" [class.desChanged]="mouseOvered">DES</p>
-    <p class="des" [class.desChanged]="mouseOvered2">IGN</p>
-  </div>
-</div>
-<a [routerLink]="['/prods']">Bla</a>
-<ul id="categories" class="clr">
-  <!-- <li class="pusher"></li> -->
-  <li>
-      <div>
-        <img src="https://farm3.staticflickr.com/2878/10944255073_973d2cd25c.jpg" alt=""/>
-        <h1>This is a title a bit longer</h1>
-        <p>Some sample text about the article this hexagon leads to</p>
-    </div>
-  </li>
-    <li>
-      <div>
-        <img src="https://farm9.staticflickr.com/8461/8048823381_0fbc2d8efb.jpg" alt=""/>
-        <h1>This is a title</h1>
-        <p>Some sample text about the article this hexagon leads to</p>
-    </div>
-  </li>
-  <li>
-      <div>
-        <img src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt=""/>
-        <h1>This is a title</h1>
-        <p>Some sample text about the article this hexagon leads to</p>
-    </div>
-  </li>
-  <!-- <li class="pusher"></li> -->
-  <li>
-      <div>
-        <img src="https://farm3.staticflickr.com/2827/10384422264_d9c7299146.jpg" alt=""/>
-        <h1>This is a title</h1>
-        <p>Some sample text about the article this hexagon leads to</p>
-    </div>
-  </li>
+</div> -->
+<div parallax id="parallax-try-id2" style="height: 200vh;width: 100%;z-index: 20;padding: 50px;background-image: url(/assets/images/1.jpg); position: relative;top:0;">
   
-  <li>
-      <div>
-        <img src="https://farm7.staticflickr.com/6217/6216951796_e50778255c.jpg" alt=""/>
-        <h1>This is a title</h1>
-        <p>Some sample text about the article this hexagon leads to</p>
-    </div>
-  </li>
-  <li class="pusher"></li>
-  <li>
-      <div>
-        <img src="https://farm7.staticflickr.com/6083/6055581292_d94c2d90e3.jpg" alt=""/>
-        <h1>This is a title</h1>
-        <p>Some sample text about the article this hexagon leads to</p>
-    </div>
-  </li>
+
+  <!-- <img parallax [config]="{parallaxInitVal: 50,parallaxRatio: .26}" src="/assets/images/3.png" style="width: 200px;height: auto;position: relative;left:
+  40%;margin-top: 40%;"> -->
+</div>
+<div style="padding: 50px;height: 200vh; width: 100%;position: relative;top:-200vh;z-index: 21;background: rgba(0, 0, 0,0.7);">
+  <p class="parallax-p q1" id="disapW">W</p>
+  <p class="parallax-p">elcome</p>
   
-  <li>
-      <div>
-        <img src="https://farm7.staticflickr.com/6092/6227418584_d5883b0948.jpg" alt=""/>
-        <h1>This is a title</h1>
-        <p>Some sample text about the article this hexagon leads to</p>
+  <div class="parallax-div1 valign-wrapper">
+    <pre class="flow-text">
+      I am Ilia, and I make a website.
+      You are a business owner and ready to take it to the next level.
+      You realize that to grow a powerful business, you need a powerful tool.
+
+      Now, let's talk about your website.
+      Your website is a powerful tool to grow your business.
+      Your website is unique, it's efficient, it's easy to use,
+      you love it, your customers love it.
+
+      And everyone wonder...
+      What makes your website so great?
+    </pre>
+  </div>
+</div>
+
+
+<div style="height: 300vh;" id="parallax-try-id4">
+  <div parallax style="margin-top:-250vh; height: 200vh;width: 100%; padding: 100px 50px;background-image: url(/assets/images/2.jpg);position: sticky;position: -webkit-sticky;top: 0;z-index: 17;" >
+    
+  </div>
+  <div style="margin-top:-250vh; height: 200vh;width: 100%; padding: 100px 50px;z-index: 18; position: sticky;position: -webkit-sticky;top: 0;background: rgba(0, 0, 0,0.8);">
+    <p class="parallax-p q1" id="disapP">P</p>
+    <p class="parallax-p">erfomance</p>
+    <div class="parallax-div1 valign-wrapper">
+      <img src="/assets/images/5.png" style="margin: auto;">
+      <pre class="flow-text" style="margin: auto;">Bla Bla Bla</pre>
     </div>
-  </li>
-  <li>
-      <div>
-        <img src="https://farm8.staticflickr.com/7187/6895047173_d4b1a0d798.jpg" alt=""/>
-        <h1>This is a title</h1>
-        <p>Some sample text about the article this hexagon leads to</p>
+  </div>
+  <div class="overlay1" id="parallax-try-id" style="z-index: 18;"></div>
+</div>
+
+
+
+<div class="hide-on-small-only" style="height: 500vh;" id="designDiv">
+  <div style="position: sticky;position: -webkit-sticky;top: 0;margin-top:-100vh;z-index: 15;background-image: url(/assets/images/9.jpg);height: 100vh;">
+    <div class="bla left " (mouseout)="mouseOvered=false" (mouseover)="mouseOvered=true">
+      <div class="bla-inside valign-wrapper" [class.changed]="mouseOvered" [class.changed2]="mouseOvered3" (mouseout)="mouseOvered3=false;pchanged=false" (mouseover)="mouseOvered3=true;pchanged=true" >
+        <p *ngIf="!mouseOvered && !mouseOvered3" [class.pchanged]="mouseOvered && !pchanged">INTERESTING</p>
+        <p *ngIf="mouseOvered && !mouseOvered3" style="color: black;">PERSONALIZED</p>
+        <p *ngIf="mouseOvered3">CREATIVE</p>
+      </div>
     </div>
-  </li>
-</ul>
+
+    <div class="bla right" (mouseout)="mouseOvered2=false" (mouseover)="mouseOvered2=true">
+      <div class="bla-inside valign-wrapper" [class.changed]="mouseOvered2" [class.changed2]="mouseOvered4" (mouseout)="mouseOvered4=false;pchanged2=false" (mouseover)="mouseOvered4=true;pchanged2=true">
+        <p *ngIf="!mouseOvered2 && !mouseOvered4">RESPONSIVE</p>
+        <p *ngIf="mouseOvered2 && !mouseOvered4" style="color: black;">INTERACTIVE</p>
+        <p *ngIf="mouseOvered4">EFFECTIVE</p>
+      </div>
+    </div>
+    <div class="divp">
+      <p class="des" [class.desChanged]="mouseOvered">DES</p>
+      <p class="des" [class.desChanged]="mouseOvered2">IGN</p>
+    </div>
+  </div>
+  <div class="overlay2" id="parallax-try-id3"></div>
+</div>
+
+
+<div style="height: 430vh;" >
+  <div parallax style="margin-top:-150vh; height: 200vh;width: 100%; padding: 100px 50px;background-image: url(/assets/images/8.jpg);position: sticky;position: -webkit-sticky;top: 0;z-index: 12;" id="securityDiv">  
+  </div>
+  <div style="margin-top:-150vh; height: 200vh;width: 100%; padding: 100px 50px;z-index: 13; position: sticky;position: -webkit-sticky;top: 0;background: rgba(0, 0, 0,0.8);" >
+    <p class="parallax-p q1" id="disapS">S</p>
+    <p class="parallax-p">ecurity</p>
+    <div class="parallax-div1 valign-wrapper">
+      <img src="/assets/images/6.png" style="margin: auto;">
+      <pre class="flow-text" style="margin: auto;">Bla Bla Bla</pre>
+    </div>
+  </div>
+  <div class="overlay3" id="parallax-try-id5"></div>
+</div>
+
+
+<div style="height: 500vh;">
+  <div style="width: 85%;height: 100vh;position: sticky;position: -webkit-sticky; top: 0;padding-top: 20px;margin-top:-100vh;" id="hexTopS">
+    <ul id="categories" class="clr">
+      <!-- <li class="pusher"></li> -->
+      <li >
+          <div style="background-color: red;">
+            <!-- <img  src="assets/images/4.png" alt="" /> -->
+            <h1>This is a title a bit longer</h1>
+            <p>Some sample text about the article this hexagon leads to</p>
+        </div>
+      </li>
+        <li >
+          <div>
+            <img  src="assets/images/10.png" alt=""/>
+            <h1>This is a title</h1>
+            <p>Some sample text about the article this hexagon leads to</p>
+        </div>
+      </li>
+      <li >
+          <div>
+            <img  src="https://farm5.staticflickr.com/4144/5053682635_b348b24698.jpg" alt=""/>
+            <h1>This is a title</h1>
+            <p>Some sample text about the article this hexagon leads to</p>
+        </div>
+      </li>
+      <!-- <li class="pusher"></li> -->
+      <li >
+          <div>
+            <img  src="https://farm3.staticflickr.com/2827/10384422264_d9c7299146.jpg" alt=""/>
+            <h1>This is a title</h1>
+            <p>Some sample text about the article this hexagon leads to</p>
+        </div>
+      </li>
+      
+      <li >
+          <div>
+            <img  src="https://farm7.staticflickr.com/6217/6216951796_e50778255c.jpg" alt=""/>
+            <h1>This is a title</h1>
+            <p>Some sample text about the article this hexagon leads to</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="hexoverl"></div>
+</div>
 <!-- <div class="hexagon z-depth-4 hoverable" *ngFor='let img of imgs' [ngStyle]="{'background-image': 'url(' + img + ')'}"></div> -->
 <!-- <span style="color: #6C6; font-size: 135px;" class="z-depth-4 hoverable" *ngFor='let img of imgs' [ngStyle]="{'background-image': 'url(' + img + ')'}">&#x2B22;</span> -->
 

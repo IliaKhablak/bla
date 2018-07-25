@@ -25,7 +25,7 @@ import {BucketService} from './services/bucket.service';
 import { Ng2PicaModule } from 'ng2-pica';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TestComponent } from './test/test.component';
-
+import { ParallaxModule, ParallaxConfig } from 'ngx-parallax';
 
   
 
@@ -53,7 +53,8 @@ import { TestComponent } from './test/test.component';
     AngularDraggableModule,
     ImageZoomModule,
     Ng2PicaModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ParallaxModule
   ],
   providers: [
   Angular2TokenService,

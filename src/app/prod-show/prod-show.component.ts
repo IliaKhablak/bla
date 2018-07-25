@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, ViewChild, HostListener} from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, ViewChild} from '@angular/core';
 import {Prod} from '../prod';
 import {ProdService} from '../services/prod.service';
 import {Observable} from 'rxjs/Rx';

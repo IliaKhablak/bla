@@ -14,8 +14,9 @@ p{
 #categories{
   overflow:hidden;
   width:90%;
-  margin:0 12%;
+  margin: 0 20%;
 }
+
 .clr:after{
   content:"";
   display:block;
@@ -59,7 +60,7 @@ p{
   width:100%;
   height:100%;
   text-align:center;
-  color:#fff;
+  color:black;
   overflow:hidden;
   
   -webkit-transform: skewY(-30deg) rotate(60deg);
@@ -104,7 +105,7 @@ p{
   width:10%;
   text-align:center;
   z-index:1;
-  border-bottom:2px solid #fff;
+  border-bottom:2px solid black;
 }
 #categories li p{
 	padding-top:50%;
@@ -132,12 +133,16 @@ p{
   height: 100vh;
   width: 50%;
   transition-duration: 1s;
+  /*background-color: black;*/
+  /**/
   /*background-color: red;*/
 }
 
 .bla:hover{
+  
+  /*background-image: none;*/
   transition-duration: 1s;
-  background-color: #ba68c8;
+  background-color: #ba68c8 !important;
 }
 
 .bla-inside{
@@ -160,12 +165,14 @@ p{
   transition-duration: 0.7s;
   height: 300px;
   border-radius: 50%;
-  border-color: #eceff1;
+  border-color: black;
 }
 
 .changed2{
-  background-color: #eceff1;
   transition-duration: 0.7s;
+  background-image: url(/assets/images/9.jpg) !important;
+  /*background-color: black;*/
+  
 }
 
 .bla-inside p{
@@ -177,12 +184,14 @@ p{
 }
 
 .pchanged{
-  color: #eceff1 !important;
+  color: black !important;
 }
 
 .pchanged2{
   color: #ba68c8 !important;
 }
+
+
 
 .des{
   color: #ba68c8;
@@ -202,7 +211,7 @@ p{
 }
 
 .desChanged{
-  color: #eceff1 !important;
+  color: black !important;
 }
 
 .bla2{
@@ -215,4 +224,75 @@ p{
 .bla2:hover{
   transition-duration: 1s;
   background-color: #ba68c8;
+}
+
+.parallax-try{
+  /*transition-duration: 1s;*/
+  
+  height: 1200px;
+  width: 100%;
+  
+}
+
+.parallax-p{
+
+  display: inline;
+  font-weight: bold;
+  font-size: 100px;
+  color: white;
+  letter-spacing: 3px;
+  text-shadow:2px 2px 10px white;
+}
+
+#parallax-p{
+
+  position: sticky;
+  top: 0;
+}
+
+.parallax-div1{
+  /*background-color: white;*/
+  /*border-radius: 10px;*/
+  margin: 20% auto;
+  padding: 20px;
+}
+
+.parallax-div1 p{
+  font-size: 30px;
+  font-weight: bold;
+  
+
+}
+
+.q1{
+  position: sticky;
+  top: 0;
+}
+
+.q2{
+  margin: 0 auto;
+}
+
+.overlay1{
+  width: 100%;height: 200vh;position: relative;top:-200vh;z-index: 19; background: rgba(0, 0, 0,1);  
+}
+
+.overlay2{
+  width: 100%;height: 200vh;position: relative;top:-100vh;z-index: 16; background: rgba(0, 0, 0,1);display: block;
+}
+
+.overlay3{
+  width: 100%;height: 200vh;position: relative;top:-150vh;z-index: 14; background: rgba(0, 0, 0,1);display: block;
+}
+
+#hexoverl{
+  width: 100%;height: 200vh;position: relative;top:-100vh;z-index: 11; background: rgba(0, 0, 0,1);display: block;
+}
+
+pre {
+
+    white-space: pre-wrap;
+    color: white;
+    /*font-size: 30px;*/
+
 }
