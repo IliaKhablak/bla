@@ -1,5 +1,17 @@
-
-<app-toolbar *ngIf="prodService.nav"></app-toolbar>
+<ng-container>
+  <div id="overlay" class="black" *ngIf="!bla" [@enterAnimation]></div>
+  <div class="preloader-wrapper active" *ngIf="!bla">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+<app-toolbar></app-toolbar>
 <!-- <div class="parallax" id="parallax" #parallax style="margin-top: -100px;">
 	<div class="parallax__group">
 	  <div class="parallax__layer parallax__layer--back">
